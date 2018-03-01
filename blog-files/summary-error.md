@@ -1,3 +1,5 @@
+# 报错信息汇总
+
 ### node
 -   **throw er; // Unhandled 'error' event ** ：请检测是否为端口被占用
 
