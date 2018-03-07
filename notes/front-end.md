@@ -13,7 +13,7 @@ chrome Opera 现在： Blink(基于webkit，Google与Opera Software共同开发)
 
 # 清除浮动
 - div style="clear:both;"//左侧和右侧  
-- #parent:after{ content:"."; height:0; visibility:hidden;display:block;
+- parent:after{ content:"."; height:0; visibility:hidden;display:block;
 clear:both;}
 - 给包含浮动元素的父标签添加css属性 overflow:auto; zoom:1; zoom:1用于兼容IE6。
 
