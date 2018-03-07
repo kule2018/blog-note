@@ -3,7 +3,7 @@
 
 > there are some notes in: [segmentfault](https://segmentfault.com/u/hewei/notes)
 
-> some files need to be saved in: [other]()
+> some files need to be saved in: [other](https://github.com/NameHewei/blog/tree/master/other)
 
 ## blog catalog
 
