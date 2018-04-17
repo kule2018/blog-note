@@ -388,6 +388,7 @@ null:没有对象
 undefined:表示缺少值（声明了变量但没有被赋值；调用函数时，应该提供的参数没有提  供，该参数返回undefined；对象没有赋值的属性；函数没有返回值时；）
 
 ---
+
 ### Math对象
 Math.abs(X):返回X的绝对值；  
 Math.ceil(X):上舍入；  
@@ -402,23 +403,38 @@ Math.sin(以弧度表示的角度)：（2*PI/360）度数，就是弧度
 - Date()方法:不接受参数，  
   alert(Date())返回当前日期和时间字符串；  
 - 创建Date对象的方法:new Date() 返回当前日期和时间  
+
 new Date(毫秒数) 可以带毫秒数的参数，返回日期；这个毫秒数是1970年1月1日到返回日期之间的毫秒时间；  
 new Date(‘October 13, 1975 11:13:00’)；  
 new Date(‘2016-05-13T11:13:00’)；  
 new Date(‘2016-05-13 11:13:00’);//在ios系统中可能报错    
 new Date(‘2016/05/13 11:13:00’)；  
 new Date(year, month, day, hours, minutes, seconds, milliseconds)  
-参数可以不写全，但是最好是后面的参数不写全；也可以是放Date对象的字符串形式。  
+参数可以不写全，但是最好是后面的参数不写全；也可以是放Date对象的字符串形式。 
+
 - var d=new Date();返回的是对象  
 d.getTime();指定的日期和时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数    
+
 Date.parse(‘October 13, 1975 11:13:00’)||(d);   
-不用d.parse()调用;   
+ 
 这里可以用d当作参数的原因是d会自执行一下返回一个datestring  
+
 是Date对象的静态方法，不需要用dateObject(就是new出来的d).parse来调用     
-如果给的当前日期是一样的，返回值就会是一样的，从1970年1月1日到给定日期之间的毫秒数。    
+    
 var d=new Date() d.toISOString()。//2017-01-09T06:19:11.004Z     
 
 - new Date(+new Date()+8*3600*1000).toISOString()  返回正确的时区时间，valueOf() 方法返回一个 Date 对象的原始值，等同于getTime() 。+操作是将该元素转换为number类型，转换不了就返回NaN。
+
+```
+var d = new Date('2018-04-03T16:40:00'); 
+console.log(d.getTime())
+console.log(d.valueOf())
+console.log(Date.parse(d))
+console.log(Date.now())
+console.log(Date.UTC(2018, 3, 3, 8, 40, 0))
+// 当给定的时间一样，返回值相同
+```
+
 
 ## 循环
 ---
@@ -656,10 +672,10 @@ this指的是调用函数的对象。
 
 
 ## String
-> substring(start,end)  
+- substring(start,end)  
 若end比start小，会先交换这两个参数，若有负数变为0。 
 
-> "Hello world!".charAt(1)  //e 
+- "Hello world!".charAt(1)  //e 
 
 ---
 当字符数少，且连接数量小于1000时就可以用"+"来连接字符串即可，若是过大，就用数组的join方式来连接，主要是考虑到老浏览器的速度比较慢；
@@ -669,13 +685,14 @@ toLocaleLowerCase()和toLowerCase()区别主要是前者会根据地区的语言
 
 ---
 字符串中可以用正则表达式的方法：  
-str.match();  
+1. str.match();  
 不设置全局，只返回第一个匹配值,并且返回子表达式的值。和属性index,input。  
 设置全局，只返回所有的匹配值，不返回子表达式的值。  
 var str='name=hew;a=c;name=hi';  
 console.log(str.match(/name=([^;]+)(;|$)/g))  
 //返回 ["name=hew;", "name=hi"]  
-str.search();  //返回匹配字符开始的位置，没有返回-1  
+
+2. str.search();  //返回匹配字符开始的位置，没有返回-1  
 str.replace(字符|正则，替换值|函数);  函数返回值为替代值，当用字符时  
 不是全局替换，函数第一个参数为匹配结果字符，然后依次是子表达式值…,出  
 现位置，被匹配字符串。  
