@@ -1,11 +1,11 @@
 [toc]
 
 # Vue
-Mustache（大胡子）：{{}}  
-缩写：v-bind：href（：href）；v-on：click（@click）
+- Mustache（大胡子）：{{}}  
+- 缩写：v-bind：href（：href）；v-on：click（@click）
 
 ---
-export defaule 后的东西默认为new Vue()的参数  
+- export defaule 后的东西默认为new Vue()的参数  
 
 ---
 1. 无论何时，绑定的数据对象上 message 属性发生了改变，插值处的内容都会更新;通过使用 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新。
@@ -18,4 +18,5 @@ export defaule 后的东西默认为new Vue()的参数
 8. v-else 元素必须紧跟在 v-if 或者 v-else-if 元素的后面——否则它将不会被识别。类似于 v-else，v-else-if 必须紧跟在 v-if 或者 v-else-if 元素之后。
 9. 非常频繁地切换，则使用 v-show 较好；如果在运行时条件不太可能改变，则使用 v-if 较好。
 10. 有时也需要在内联语句处理器中访问原生 DOM 事件。可以用特殊变量 $event 把它传入方法
-
+11. v-model后不能跟表达式
+12. computed 不能传参

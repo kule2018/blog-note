@@ -32,79 +32,16 @@ npm start || npm test  可以直接用。
 --save-dev 放在devDependences中  
 npm install 默认两个下的都安装，--production 只安装dependences的 
 
----
-
-## 定时器
-[参考](http://www.ruanyifeng.com/blog/2018/02/node-event-loop.html)
-
-setTimeout()
-
-setInterval()
-
-setImmediate()
-
-process.nextTick() 是在本轮循环执行的，所有异步任务里最先执行的
-
-1. 同步任务比异步任务早执行
-2. 异步任务  
-   - 本轮循环（event loop，js处理异步任务的方式）
-   - 次轮循环
-   - 本轮循环早于次轮循环
-
-process.nextTick()和Promise()的回掉函数追加在本轮循环，即同步任务一旦执行完，就开始执行。
-
-setTimeout，setInterval，setImmediate追加在次轮循环
-
-**微任务**
-
-promise的回掉会进入异步任务的“微任务”队列
-
-微任务队列追加在process.nextTick队列之后，也是属于本轮循环
-
-> 只有前一个队列执行完了之后才能执行下一个队列
-
-**事件循环**
-
-事件初始化，会先完成下面事情：
-
-同步任务
-
-发出异步请求
-
-规划定时器生效的时间
-
-执行process.nextTick()等等
-
----
-事件循环会无限次地执行，只有异步任务的回调函数队列清空了，才停止。
-
-每一轮六个阶段依次执行
-
-timers
-
-I/O callbacks
-
-idle, prepare
-
-poll
-
-check
-
-close callbacks
----
 # node
 
-require()//是common.js的语法  
-
-模块的分类
-
+## 模块的分类
 1. 一．核心模块
 2. 二．文件模块
 3. 三．第三方模块
 
----
+## 基础信息
 
-Node里面没有全局命名空间的概念;
+Node里面没有全局命名空间的概念
 
 用require('path')来导入模块
 
@@ -226,74 +163,7 @@ res.writeHead(200, {'Access-Control-Allow-Origin':'*'});
 
 如果它的值设为 * ，则表示谁都可以用。
 
-# Bower
-
-npm install –g bower
-
-安装jquery这些的时候安装在项目的文件中。
-
-bower install jquery。
-
-# Jade(pug)
-
-先安装jade到全局去要不然执行不到，npm install jade –g,
-
-再到有jade的文件中执行jade文件。
-
 ---
-或是直接在项目中直接安装 npm install jade
-
-就可以在js文件中调用了
-
----
-命令行的jade
-
-jade –P(大P) index.jade   格式化生成的html
-
-jade –P(大P) –w index.jade  监视文件的改变实时刷新编译结果。
-
----
-
-
-doctype html
-
----
-
-
-div#id.cla.cla可以这样设置id和class也可以直接省掉div，直接写id或class名，默认会解析为div的属性
-
----
-纯文本：
-
-p 文本文本文本文本
-
-或是
-
-P
-
-| 文本文本文本
-
-| 文本文本文本
-
-或是
-
-p.
-
-  文本文本
-
-  文本文本
-
-变量：#{变量名}
-
-转义：\
-
----
-case：
-
-如果要将结果放到一个标签内，换行空两格开始写case代码，when后的结果第一个为标签。
-
-# node
-
 __dirname nodejs的全局变量，指向当前执行脚本所在目录。
 
 ---
@@ -343,6 +213,73 @@ application/json json格式数据提交
 
 text/xml  提交xml格式数据
 
+### Request Method 
+
+> GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
+
+- OPTIONS: 询问服务器支持的方法。当浏览器发现，是一个非简单请求，就自动发出一个"预检"请求，"预检"请求用的请求方法是OPTIONS
+
+
+
+## 定时器
+[参考](http://www.ruanyifeng.com/blog/2018/02/node-event-loop.html)
+
+setTimeout()
+
+setInterval()
+
+setImmediate()
+
+process.nextTick() 是在本轮循环执行的，所有异步任务里最先执行的
+
+1. 同步任务比异步任务早执行
+2. 异步任务  
+   - 本轮循环（event loop，js处理异步任务的方式）
+   - 次轮循环
+   - 本轮循环早于次轮循环
+
+process.nextTick()和Promise()的回掉函数追加在本轮循环，即同步任务一旦执行完，就开始执行。
+
+setTimeout，setInterval，setImmediate追加在次轮循环
+
+### 微任务
+
+promise的回掉会进入异步任务的“微任务”队列
+
+微任务队列追加在process.nextTick队列之后，也是属于本轮循环
+
+> 只有前一个队列执行完了之后才能执行下一个队列
+
+### 事件循环
+
+事件初始化，会先完成下面事情：
+
+同步任务
+
+发出异步请求
+
+规划定时器生效的时间
+
+执行process.nextTick()等等
+
+---
+事件循环会无限次地执行，只有异步任务的回调函数队列清空了，才停止。
+
+每一轮六个阶段依次执行
+
+timers
+
+I/O callbacks
+
+idle, prepare
+
+poll
+
+check
+
+close callbacks
+
+
 # express
 
 先在项目中安装express模块(项目目录中)
@@ -358,5 +295,8 @@ var app=express();启动一个web服务器，将实例赋值给一个变量叫ap
 express()是express模块导出的一个入口函数。
 
 ---
+
+# koa
+
 
 

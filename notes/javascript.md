@@ -35,19 +35,21 @@ document.execCommand("copy");
 
 ---
  **浏览器全屏**  
-方法必须放到用户触发的事件里面  
+```js
+// 方法必须放到用户触发的事件里面  
 e.click(function(){  
     document.documentElement.webkitRequsetFullScreen();  
 	document.webkitExitFullScreen();//退出全屏  
 })  
-除了opera不加前缀，还有moz；ie暂不支持；  
-IE中用  
-Function a(){  
+// 除了opera不加前缀，还有moz；ie暂不支持；  
+// IE中用  
+function a(){  
     var b=new ActiveXObject("Wscript.shell");  
     b.sendKeys("{F11}");  
 }  
-a();
- 
+a()
+```
+
 ---
 **模块化**  
 //最基本方式
@@ -215,6 +217,11 @@ exec()还会返回两个属性，index（匹配字符的起始下标），input�
 
 RegExp.test()    检测到有就返回true
 
+---
+- 删除字符中的非数字字符：
+```
+str.replace(/^[^1-9]+|[^0-9]+/g, '')
+```
 
 ## Object
 ```javascript
@@ -693,11 +700,11 @@ console.log(str.match(/name=([^;]+)(;|$)/g))
 //返回 ["name=hew;", "name=hi"]  
 
 2. str.search();  //返回匹配字符开始的位置，没有返回-1  
-str.replace(字符|正则，替换值|函数);  函数返回值为替代值，当用字符时  
+3. str.replace(字符|正则，替换值|函数);  函数返回值为替代值，当用字符时  
 不是全局替换，函数第一个参数为匹配结果字符，然后依次是子表达式值…,出  
 现位置，被匹配字符串。  
-str.split();   //以传入的字符或正则匹配的字符分割成数组，并删除改字符  
-substr
+4. str.split();   //以传入的字符或正则匹配的字符分割成数组，并删除改字符  
+5. substr
 
 ## 其它
 ### 浏览器窗口尺寸

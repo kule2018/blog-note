@@ -50,7 +50,7 @@ background:hsl(色调hue，饱和度saturation，亮度luminance)
 # 布局
 1. margin,padding用百分比时:都是相对于父元素的宽;  
 2. left,top:百分比相对宽,高
-3. ul,ol都有一个padding和margin;li前面的样式不会占用宽度，它是占用ul的padding,但是只针对outside而言,对于inside要占用宽度
+3. ul,ol都有一个padding和margin;li前面的样式不会占用宽度，它是占用ul的padding,但是只针对outside而言,对于inside要占用宽度,去掉li前面点用 list-style-type: none;
 
 
 ## flex布局

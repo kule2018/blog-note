@@ -1,5 +1,6 @@
-# vue配置sass
+[toc]
 
+# vue中配置sass
 ### 版本
 - webpack 3.6.0
 - vue 2.5.2
@@ -10,8 +11,7 @@
 - npm | cnpm install node-sass --save-dev
 - npm | cnpm install sass-loader --save-dev
 
-### webpack.base.config.js
-不用修改任何配置
+### 不用修改任何配置
 
 ### vue文件中使用
 
