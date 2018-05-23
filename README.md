@@ -7,7 +7,7 @@
 
 # blogs 
 
-- [HTML5 Device Access]()
+- [HTML5 Device Access](https://www.cnblogs.com/he-wei/p/9080149.html)
 
 - [报错信息汇总](http://www.cnblogs.com/he-wei/p/8478498.html)
 
