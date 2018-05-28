@@ -25,7 +25,7 @@ reader.readAsDataURL(file);
 > [参考地址](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events)
 
 - touchstart
-- touchen
+- touchend
 - touchcancel **电话的接入或者弹出信息等比较高级的事件触发，一般做保存操作**
 - touchmove
 
