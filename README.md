@@ -5,14 +5,14 @@
 
 > some files need to be saved in: [other](https://github.com/NameHewei/blog/tree/master/other)
 
-# blogs catalog
+# blogs 
+
+- [HTML5 Device Access](https://www.cnblogs.com/he-wei/p/9080149.html)
 
 - [报错信息汇总](http://www.cnblogs.com/he-wei/p/8478498.html)
 
----
 - [charles(version4.2.1)抓包手机数据](http://www.cnblogs.com/he-wei/p/8482243.html)
 
----
 - [元素内容垂直循环滚动](http://www.cnblogs.com/he-wei/p/8489773.html)
 
 ## Vue
