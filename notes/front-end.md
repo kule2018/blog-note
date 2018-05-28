@@ -77,3 +77,4 @@ var myfunc = function(){} // 3515ms window.myfunc = function(){} // 10151ms
 a[i] = value; // 1270ms obj[property] = value; // 960ms  
 
 # 算法题
+

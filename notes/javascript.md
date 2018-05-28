@@ -38,7 +38,7 @@ document.execCommand("copy");
 ```js
 // 方法必须放到用户触发的事件里面  
 e.click(function(){  
-    document.documentElement.webkitRequsetFullScreen();  
+    document.documentElement.webkitRequestFullScreen();  
 	document.webkitExitFullScreen();//退出全屏  
 })  
 // 除了opera不加前缀，还有moz；ie暂不支持；  
@@ -95,9 +95,10 @@ animate({scrollTop:'10px'},100)；
 - offsetHeight:包含padding和边框和滚动条||outerHeight()
 - scrollHeight:包括元素没有显示的内容的高度。
 - clientHeight:元素的可见区域不包括内边距和边框或滚动条有padding||innerHeight()
-- width() - 设置或返回元素的宽度
-- innerWidth() - 返回元素的宽度（包含 padding）
-- outerWidth() - 返回元素的宽度（包含 padding 和 border）
+- 窗口高度 document.documentElement.clientHeight
+- width - 设置或返回元素的宽度
+- innerWidth - 返回元素的宽度（包含 padding）
+- outerWidth - 返回元素的宽度（包含 padding 和 border）
 - $('p').offset()返回该元素相对文档的位置;  
 获取：$('p').offset().left/top;  
 设置：object={left:'',top:''};  

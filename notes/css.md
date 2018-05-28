@@ -14,6 +14,13 @@
 
 > 当为行内元素进行定位时，position:**absolute**，position:fixed。都会使原先的行内元素变为块级元素。
 
+> placeholder 颜色
+```css
+textarea::-webkit-input-placeholder{ color: #cacaca; }
+input::-webkit-input-placeholder{ color: #cacaca; }
+```
+> padding会增加元素宽高  尤其是设置了width:100%的时候要注意页面出现滚动
+
 # 选择器
 > :nth-child(n|odd|even),选择属于父元素的第几个子元素，后两个为奇数和偶数；
 
@@ -173,7 +180,7 @@ inline:水平方向padding margin有效
 word-break:break-all;只对英文起作用，以字母作为换行依据  
 word-wrap:break-word; 只对英文起作用，以单词作为换行依据  
 white-space:pre-wrap; 只对中文起作用，强制换行  
-white-space:nowrap; 强制不换行，都起作用(对inner-block的标签也起作用) (文本不换行直到遇到< br/>;标签) +overflow:hidden和text-overflow:ellipsis来实现:aaaaa...
+white-space:nowrap; 强制不换行，都起作用(对inner-block的标签也起作用) (文本不换行直到遇到< br/>;标签) +overflow:hidden 和 text-overflow:ellipsis来实现:aaaaa...
 
 ---
 word-spacing:10px    定义单词间的间距  
@@ -303,7 +310,7 @@ transition: transition-property(设置过渡效果的 CSS 属性的名称默认a
 
 ---
 transform:
->当旋转时坐标轴会一起转，之一rotate与translate语句的前后顺序
+>当旋转时坐标轴会一起转，注意rotate与translate语句的前后顺序
 
 正度数：顺时针；负度数：逆时针；默认原点为对象旋转中心；
 
