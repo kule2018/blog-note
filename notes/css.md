@@ -1,42 +1,49 @@
 [toc]
 
->*：ie6，ie7可识别；_和-ie6可识别；
+- *：ie6，ie7可识别；_和-ie6可识别；
 
->-webkit-appearance: none; 去掉type=number的默认样式
+- -webkit-appearance: none; 去掉type=number的默认样式
 
->initial(设置为默认效果); inherit：继承父元素的该属性；
+- initial(设置为默认效果); inherit：继承父元素的该属性；
 
->@media(max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
+- @media(max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
 
->border-width: 5px 10px 20px 0;(上右下左)
+- border-width: 5px 10px 20px 0;(上右下左)
 
-> < hr style='height:1px;background:black;border:0'> 实现一条横线
+-  < hr style='height:1px;background:black;border:0'-  实现一条横线
 
-> 当为行内元素进行定位时，position:**absolute**，position:fixed。都会使原先的行内元素变为块级元素。
+-  当为行内元素进行定位时，position:**absolute**，position:fixed。都会使原先的行内元素变为块级元素。
 
-> placeholder 颜色
+- div的宽高等比缩放，用padding-bottom height:0 margin padding 百分比是以宽度来计算
+
+- img
+replace 元素
+谷歌是不管有没有src属性，设置了宽高就会有一个边框显示，只能用一个小的透明图片占位去除边框;    
+火狐是只要 src 没有值或设置了 alt值为空就不会占位，没有任何效果；
+
+-  placeholder 颜色
 ```css
 textarea::-webkit-input-placeholder{ color: #cacaca; }
 input::-webkit-input-placeholder{ color: #cacaca; }
 ```
-> padding会增加元素宽高  尤其是设置了width:100%的时候要注意页面出现滚动
+-  padding会增加元素宽高  尤其是设置了width:100%的时候要注意页面出现滚动
 
 # 选择器
-> :nth-child(n|odd|even),选择属于父元素的第几个子元素，后两个为奇数和偶数；
+-  :nth-child(n|odd|even),选择属于父元素的第几个子元素，后两个为奇数和偶数；
 
-> ~:
+-  ~:
 .a(元素1)~.b(元素2),同一个父元素下的兄弟元素,不必是挨着的但是必须是元素1之后的。
-\[ attribute~=value \]:属性包含某个值的元素
+- [ attribute~=value ] :属性包含某个值的元素
 
-> .a+.b 如果.a元素后紧跟的是.b即可选中。  
-.a>.b选中.a的子一级的所有.b元素不包含孙一级。
+-  .a+.b 如果.a元素后紧跟的是.b即可选中。  
+.a > .b选中.a的子一级的所有.b元素不包含孙一级。
 
-> a:link {color: #FF0000} *未访问时的状态*  
+a:link {color: #FF0000} *未访问时的状态*  
 a:visited {color: #00FF00} *已访问过的状态*  
 a:hover {color: #FF00FF} *鼠标移动到链接上时的状态*   
 a:active {color: #0000FF} *鼠标按下去时的状态*
 
-> :checked  可以作用于radio checkbox option
+-  :checked  可以作用于radio checkbox option
 
 
 # font
@@ -61,9 +68,9 @@ background:hsl(色调hue，饱和度saturation，亮度luminance)
 
 
 ## flex布局
-> 子元素的float，clear，vertical-aline属性将失效。
+-  子元素的float，clear，vertical-aline属性将失效。
 
-> 容器设置display:flex;(任何元素都可以设置，行内用display:inline-flex设置之后该容器将不会再占用一行);
+-  容器设置display:flex;(任何元素都可以设置，行内用display:inline-flex设置之后该容器将不会再占用一行);
 
 ### 父容器的6个属性：
 
@@ -168,11 +175,6 @@ inline:水平方向padding margin有效
 但是当设置了position：absolute/fixed的是会起作用的；
 
 ---
-## Img
-谷歌是不管有没有src属性，设置了宽高就会有一个边框显示，只能用一个小的透明图片占位去除边框;    
-火狐是只要src没有值或设置了alt值为空就不会占位，没有任何效果；
-
----
 在页面上加载过一次该图片后，无论你是在当前页面再次使用该图片还是在该站点的其它页面使用，都会调用缓存。
 
 ---
@@ -216,8 +218,8 @@ webkit内核
 
 *滚动条的宽度*  
 ::-webkit-scrollbar {  
-    width: 14px;  
-    height: 14px;  
+    width: 14px;  // Y轴方向滚动条的宽度
+    height: 14px; // X轴方向滚动条的高度
 }
 
 *垂直方向的下方按钮*  
