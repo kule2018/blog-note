@@ -20,3 +20,7 @@
 10. 有时也需要在内联语句处理器中访问原生 DOM 事件。可以用特殊变量 $event 把它传入方法
 11. v-model后不能跟表达式
 12. computed 不能传参
+
+## vue-cli
+- assets 目录一般主要放样式代码 会被webpack编译
+- 当打包后的代码不是放到域名的根目录，导致css中的背景图片路径不正确，可以将图片放到此目录，然后在build/utils.js 中修改ExtractTextPlugin 的 publicPath

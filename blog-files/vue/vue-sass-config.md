@@ -15,16 +15,9 @@
 
 ### vue文件中使用
 
-
-```html
-<script>
- //直接用js引入样式文件  
- import 'url...';
- </script>
-```
 ```html
 <style type="text/scss" lang="scss">
-	如果要引入文件
+   如果要引入文件
    @import 'url...';**注意分号必须要加**
 </style>
 ```

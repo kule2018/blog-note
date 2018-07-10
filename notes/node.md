@@ -1,7 +1,7 @@
 [toc]
 
 # 命令
-**linux**  
+## linux  
 创建目录：mkdir name  
 删除目录：  
 * rm  删除文件 -r 递归删除，可删除子目录及文件  -f 强制删除  
@@ -33,6 +33,9 @@ npm start || npm test  可以直接用。
 npm install 默认两个下的都安装，--production 只安装dependences的 
 
 # node
+
+## windows安装
+> 如果不是安装在c盘需要设置环境变量
 
 ## 模块的分类
 1. 一．核心模块
