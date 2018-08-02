@@ -1,6 +1,8 @@
 # iview自定义实现多级表头
+> 最近更新： 2018-07-19
+- **注意：最新版iview已经提供多级包头功能 [参考](https://www.iviewui.com/components/table)**
 
-> 原理：利用多个Table组件通过显示和隐藏thead和tbody来拼接表格（较粗暴）
+- 原理：利用多个Table组件通过显示和隐藏thead和tbody来拼接表格（较粗暴）
 
 ![](https://images2018.cnblogs.com/blog/974585/201803/974585-20180301133036728-24393396.png)
 

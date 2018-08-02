@@ -425,7 +425,7 @@ d.getTime();指定的日期和时间距 1970 年 1 月 1 日午夜（GMT 时间�
 
 Date.parse(‘October 13, 1975 11:13:00’)||(d);   
  
-这里可以用d当作参数的原因是d会自执行一下返回一个datestring  
+这里可以用d当作参数的原因是d会自执行一下返回一个 datestring  
 
 是Date对象的静态方法，不需要用dateObject(就是new出来的d).parse来调用     
     
@@ -433,7 +433,9 @@ var d=new Date() d.toISOString()。//2017-01-09T06:19:11.004Z
 
 - new Date(+new Date()+8*3600*1000).toISOString()  返回正确的时区时间，valueOf() 方法返回一个 Date 对象的原始值，等同于getTime() 。+操作是将该元素转换为number类型，转换不了就返回NaN。
 
-```
+- 时间大小比较（采用如下的js中的方法获取毫秒数来比较，不要直接比较，直接比较为错误方法）
+
+```js
 var d = new Date('2018-04-03T16:40:00'); 
 console.log(d.getTime())
 console.log(d.valueOf())

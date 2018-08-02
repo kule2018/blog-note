@@ -24,3 +24,13 @@
 ## vue-cli
 - assets 目录一般主要放样式代码 会被webpack编译
 - 当打包后的代码不是放到域名的根目录，导致css中的背景图片路径不正确，可以将图片放到此目录，然后在build/utils.js 中修改ExtractTextPlugin 的 publicPath
+- 最好用相对路径
+
+### cue-cli-3
+- 图片资源放到assets，不要放到public中否则打包出来的图片会是两份
+- 其它的js资源可以放到public中
+
+## keep-alive
+1. include 包含的是组件的name属性值
+2. 通过同一个router-view 进入的路由间切换 keep-alive 都有效
+3. 只要通过keep-alive下的路由 都会触发activated 只有第一次进入会触发mounted（切换过router-view入口 再进入也会触发mounted）

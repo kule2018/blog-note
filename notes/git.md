@@ -63,11 +63,11 @@ git clone 会默认将本地与远程分支进行追踪
 
 - git remote add anyname url  定义了一个本地的anyname远程端，这个anyname远程端指向url所代表的远程端。当用git clone时默认的anyname为origin。 
 
-- git push origin [localbranch | HEAD(就是当前活跃分支的游标)]:remotebranch当远程和本地分支相同时可以简写：git push origin branchname  
+- git push origin [localbranch | HEAD(就是当前活跃分支的游标)] : remotebranch (当远程和本地分支相同时可以简写：git push origin branchname)  
 
 - 当远程没有branchname时就新建分支，确保本地已有branchname分支
-   - git push origin  :remotebranch  删除远程分支 ||   
-   - git push origin --delete remotebranch
+- git push origin  :remotebranch  删除远程分支 ||   
+- git push origin --delete remotebranch
 
 - git pull origin remotebranch:localbranch  表示获取远程分支的更新与本地分支合并.
 - git pull origin remotebranch  表示与当前本地分支合并;
