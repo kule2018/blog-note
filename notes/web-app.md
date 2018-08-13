@@ -36,3 +36,45 @@ document.body.scrollTop = height // ios
 ```
 
 - 设置了元素overflow：auto 在 ios 中滚动不流畅，设置-webkit-overflow-scrolling: touch
+
+# 移动端 兼容所有h5
+
+# 基于webview
+
+# 基于webkit
+
+# 定高  宽度百分比   flex  媒体查询
+
+```css
+ @media 媒体类型(screen,print) and 媒体特性（max-width）{
+     css
+ }
+ ```
+
+ <link rel="stylesheet" href="" media="screen and (max-width:320px)">
+
+ rem ios6+ android 2.1+
+
+ document.documentElement.clientWidth || document.body.clientWidth; 
+
+
+ padding会增加宽度
+ box-sizing：border-box
+
+ px :css pixels 逻辑像素，浏览器使用的抽象单位
+ dp,pt: device independent pixels 设备独立像素 物理像素
+ dpr：设备像素缩放比
+
+平面上 1px = dpr * dpr * dp 
+维度上 1px = dpr * dp
+
+flex 4.4以上
+
+1px  用scale缩放0.5  达到0.5像素效果
+多行文本溢出 box-orient：vertical；line-clamp：2
+
+click 300ms 延迟
+
+tap 300ms延迟导致 底层的元素的cklic事件被触发  所以底层最好也用tap事件
+
+ios 弹性滚动 over-scroll：touch
