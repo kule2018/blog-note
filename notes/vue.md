@@ -32,5 +32,6 @@
 
 ## keep-alive
 1. include 包含的是组件的name属性值
-2. 通过同一个router-view 进入的路由间切换 keep-alive 都有效
-3. 只要通过keep-alive下的路由 都会触发activated 只有第一次进入会触发mounted（切换过router-view入口 再进入也会触发mounted）
+2. 通过同一个router-view 进入的路由间切换, keep-alive 都有效,都会缓存页面。
+3. 只要通过keep-alive下的路由(前提是要包含在include中) 都会触发activated, 只有第一次进入会触发mounted（切换过router-view入口 再进入也会触发mounted）
+4. 注意include 如果用字符串值，后面名称与逗号之间不要有空格
