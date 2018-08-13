@@ -142,3 +142,10 @@ store.dispatch()方法会触发reducer的自执行
 ---
 subscribe  
 可以用subscribe函数监听store，一旦state发生变化就自动执行这个函数，该方法返回一个函数，调用这个函数就可以接触监听。
+
+
+# react native
+
+-  create-react-native-app reactNT  创建
+
+- yarn start
