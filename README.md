@@ -21,6 +21,7 @@
 - [iview自定义实现多级表头](http://www.cnblogs.com/he-wei/p/8487998.html)
 
 ## node
+- [node获取本机动态IP,并对应修改相关JavaScript文件的IP地址](https://www.cnblogs.com/he-wei/p/9405799.html)
 
 ### koa
 

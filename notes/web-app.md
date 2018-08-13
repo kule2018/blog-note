@@ -32,7 +32,7 @@
 - 设置或者获取滚动条位置
 ```js
 document.documentElement.scrollTop // 其它
-document.body.scrollTop = tempH // ios
+document.body.scrollTop = height // ios
 ```
 
 - 设置了元素overflow：auto 在 ios 中滚动不流畅，设置-webkit-overflow-scrolling: touch

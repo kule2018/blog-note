@@ -62,3 +62,17 @@ require([moudle],callback)
 import "jquery";  
 export function doStuff() {}
 
+
+- vue-cli 脚手架打包出来的文字图标不显示
+修改webpack.base.conf.js 的
+```js
+{
+  test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+  loader: 'url-loader',
+  options: {
+    limit: 100000, // 这里的值改大一点
+    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+  }
+}
+```
+
