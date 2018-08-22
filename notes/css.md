@@ -525,4 +525,20 @@ reset模块是compass内置的
 压缩输出注释不被删除
 
 
+# 视口单位适配布局
+
+## 视口
+- 桌面端：浏览器可视区域
+- 移动端：
+  - Layout Viewport（布局视口）指的是该视口
+  - Visual Viewport（视觉视口）
+  - Ideal Viewport（理想视口）
+
+## css3视口单位
+- vm：1vw 等于视口宽度的1%（永远指水平方向）
+- vh: 1vh 等于视口高度的1%
+- vmin : 选取 vw 和 vh 中最小的那个
+- vmax : 选取 vw 和 vh 中最大的那个
+
+
 

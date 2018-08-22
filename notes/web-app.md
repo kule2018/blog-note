@@ -63,7 +63,7 @@ document.body.scrollTop = height // ios
 
  px :css pixels 逻辑像素，浏览器使用的抽象单位
  dp,pt: device independent pixels 设备独立像素 物理像素
- dpr：设备像素缩放比
+ dpr：设备像素缩放比 js 用 window.devicePixelRatio 来获取
 
 平面上 1px = dpr * dpr * dp 
 维度上 1px = dpr * dp
