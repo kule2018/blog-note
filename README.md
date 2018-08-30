@@ -34,12 +34,6 @@
 
 - [css](https://github.com/NameHewei/blog/blob/master/notes/css.md)
 
-- [D3](https://github.com/NameHewei/blog/blob/master/notes/D3.md)
-
-- [front-end.md](https://github.com/NameHewei/blog/blob/master/notes/front-end.md)
-
-- [git](https://github.com/NameHewei/blog/blob/master/notes/git.md)
-
 - [html](https://github.com/NameHewei/blog/blob/master/notes/html.md)
 
 - [javascript](https://github.com/NameHewei/blog/blob/master/notes/javascript.md)
@@ -54,10 +48,14 @@
 
 - [react](https://github.com/NameHewei/blog/blob/master/notes/react.md)
 
-- [utils](https://github.com/NameHewei/blog/blob/master/notes/utils.md)
-
 - [vue](https://github.com/NameHewei/blog/blob/master/notes/vue.md)
 
 - [web-app](https://github.com/NameHewei/blog/blob/master/notes/web-app.md)
 
 - [webpack](https://github.com/NameHewei/blog/blob/master/notes/webpack.md)
+
+- [front-end.md](https://github.com/NameHewei/blog/blob/master/notes/front-end.md)
+
+- [git](https://github.com/NameHewei/blog/blob/master/notes/git.md)
+
+- [D3](https://github.com/NameHewei/blog/blob/master/notes/D3.md)

@@ -27,7 +27,11 @@ replace(/^[^1-9]+|[^\d]+/g, '')
 function getCookieValue(key) {
   var reg = new RegExp(`${key}=(.*)(;|$)`, 'i')
 }
+```
 
+> positive (integers or decimals) 
+```js
+/^[+]?\d+([.]\d+)?$/
 ```
 
 # time format

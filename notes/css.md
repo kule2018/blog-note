@@ -511,16 +511,16 @@ css3 helpers typography utilities browser
 ---
 插件引用在config.rb文件中配置。
 
-例：require &#39;compass-normalize&#39;
+例：require "compass-normalize"
 
-在要引用的scss文件中用@import &#39;normalize&#39;
+在要引用的scss文件中用@import "normalize"
 
 reset模块是compass内置的
 
-单独引用某个模块要引用import &#39;normalize-version&#39;
+单独引用某个模块要引用import "normalize-version"
 
 ---
-强制引入两次，@import &#39;filename！&#39;
+强制引入两次，@import "filename！"
 
 压缩输出注释不被删除
 
