@@ -15,6 +15,8 @@
 
 - [元素内容垂直循环滚动](https://github.com/NameHewei/blog/blob/master/blog-files/vertical-roll.md)
 
+- [使用windows powershell ISE管理命令窗口，并集成git命令](https://github.com/NameHewei/blog/blob/master/blog-files/psISE.md)
+
 ## Vue
 - [vue中配置sass](https://github.com/NameHewei/blog/blob/master/blog-files/vue/vue-sass-config.md)
 
