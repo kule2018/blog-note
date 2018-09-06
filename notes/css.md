@@ -77,13 +77,13 @@ background:hsl(色调hue，饱和度saturation，亮度luminance)
 1. flex-direction(弯曲方向):row | row-reverse(反向) | column | column-reverse
 2. flex-wrap:nowrap(内部元素不换行且会改变元素宽度)|wrap(内部元素换行)|wrap-reverse(换行且第一行在下面)
 3. flex-flow:flex-direction||flex-wrap(默认row nowrap)
-4. justify-content:调整内部元素在主轴上的对齐方式
+4. justify-content:调整内部元素在主轴(水平方向)上的对齐方式
   flex-start(左对齐默认)|  
   flex-end(右对齐)  
-  center(居中)  
+  center(水平方向居中)  
   space-between(两端对齐，边距为0)  
   space-around(每个元素件的间隔相同，是与边距的两倍)  
-5. aline-items:设置项目在纵轴(交叉轴)上的位置
+5. align-items:设置项目在纵轴(交叉轴)上的位置
   stretch(默认，项目被拉伸，适应容器)；  
   center(项目被放在纵轴中心)  
   flex-start  
