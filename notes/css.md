@@ -77,13 +77,13 @@ background:hsl(色调hue，饱和度saturation，亮度luminance)
 1. flex-direction(弯曲方向):row | row-reverse(反向) | column | column-reverse
 2. flex-wrap:nowrap(内部元素不换行且会改变元素宽度)|wrap(内部元素换行)|wrap-reverse(换行且第一行在下面)
 3. flex-flow:flex-direction||flex-wrap(默认row nowrap)
-4. justify-content:调整内部元素在主轴上的对齐方式
+4. justify-content:调整内部元素在主轴(水平方向)上的对齐方式
   flex-start(左对齐默认)|  
   flex-end(右对齐)  
-  center(居中)  
+  center(水平方向居中)  
   space-between(两端对齐，边距为0)  
   space-around(每个元素件的间隔相同，是与边距的两倍)  
-5. aline-items:设置项目在纵轴(交叉轴)上的位置
+5. align-items:设置项目在纵轴(交叉轴)上的位置
   stretch(默认，项目被拉伸，适应容器)；  
   center(项目被放在纵轴中心)  
   flex-start  
@@ -511,16 +511,16 @@ css3 helpers typography utilities browser
 ---
 插件引用在config.rb文件中配置。
 
-例：require &#39;compass-normalize&#39;
+例：require "compass-normalize"
 
-在要引用的scss文件中用@import &#39;normalize&#39;
+在要引用的scss文件中用@import "normalize"
 
 reset模块是compass内置的
 
-单独引用某个模块要引用import &#39;normalize-version&#39;
+单独引用某个模块要引用import "normalize-version"
 
 ---
-强制引入两次，@import &#39;filename！&#39;
+强制引入两次，@import "filename！"
 
 压缩输出注释不被删除
 
