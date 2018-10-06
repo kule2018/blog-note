@@ -34,6 +34,11 @@ npm install 默认两个下的都安装，--production 只安装dependences的
 
 # node
 
+## 报错信息
+- 502： bad gateway 错误的网关
+- throw er; // Unhandled 'error' event ：请检测是否为端口被占用
+- EADDRINUSE : 给定的地址已经被使用
+
 ## windows安装
 > 如果不是安装在c盘需要设置环境变量
 
@@ -300,6 +305,8 @@ express()是express模块导出的一个入口函数。
 ---
 
 # koa
+
+- 使用koa2-cors时 要把app.use(cors())放在最前面
 
 
 

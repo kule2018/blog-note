@@ -6,7 +6,7 @@
 
 - initial(设置为默认效果); inherit：继承父元素的该属性；
 
-- @media(max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
+- @media screen and (max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
 
 - border-width: 5px 10px 20px 0;(上右下左)
 
@@ -523,6 +523,22 @@ reset模块是compass内置的
 强制引入两次，@import &#39;filename！&#39;
 
 压缩输出注释不被删除
+
+
+# 视口单位适配布局
+
+## 视口
+- 桌面端：浏览器可视区域
+- 移动端：
+  - Layout Viewport（布局视口）指的是该视口
+  - Visual Viewport（视觉视口）
+  - Ideal Viewport（理想视口）
+
+## css3视口单位
+- vm：1vw 等于视口宽度的1%（永远指水平方向）
+- vh: 1vh 等于视口高度的1%
+- vmin : 选取 vw 和 vh 中最小的那个
+- vmax : 选取 vw 和 vh 中最大的那个
 
 
 
