@@ -6,7 +6,7 @@
 
 - initial(设置为默认效果); inherit：继承父元素的该属性；
 
-- @media(max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
+- @media screen and (max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
 
 - border-width: 5px 10px 20px 0;(上右下左)
 

@@ -18,3 +18,18 @@ pip install Scrapy
 
 - [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to: 表示request的地址和allow_domain地址冲突，被过滤。
   - 设置 yield Request(url, callback=self.parse_item, ***dont_filter=True***)
+
+
+导出为json
+scrapy crawl spider名称 -o test.json
+
+注意配置FEED_EXPORT_ENCODING = 'utf-8' 否则中文会被转码
+
+报403时注意把USER_AGENT加上
+
+text() 获取文本
+@属性名  获取属性值
+
+在父节点下又使用xpath路径前要加./
+
+去除换行空格用 xpath('normalize-space('.//div/text()')')
