@@ -2,6 +2,7 @@
 
 # Javascript
 
+---
 **复制内容**
 
 先select()选中
@@ -15,18 +16,21 @@ document.execCommand("copy");
 - 函数调用是表达式
 
 ---
+**阻止a标签默认事件**
 - a href="javascript:void(0);" onclick="js-method()"  最周全的方法，onclick方法负责执行js函数，而void是一个操作符，void(0)返回undefined，地址不发生跳转。
 - a href="javascript:;" onclick="js_method()" 同上，只是执行了空代码。
 
- ---
+---
+ **ready与onload的区别**
  $(document).ready()是在DOM结构载入完后执行的，而window.onload是在所有文件都加载完后执行的。
 
- ---
+---
+**正序遍历与反序遍历**
 
- 反序更快 for(var i＝item.length;i--;) *注意最后的分号,该方法会从length-1开始*  
+反序更快 for(var i＝item.length;i--;) *注意最后的分号,该方法会从length-1开始*  
  
  ---
- continue | break | return  
+ **continue | break | return  区分**
  - break,continue是一起的，return 是函数返回语句，但是返回的同时也将函数停止。  
  - break和continue这两个应用的范围是退出循环或者switch语句，在其他地方使用会导致错误.    
  - continue(跳出本次循环)语句只能用在while语句、do/while语句、for语句、或者for/in语句的循环体内，在其它地方使用都会引起错误！
@@ -36,33 +40,6 @@ document.execCommand("copy");
  - return false的作用一般是用来取消默认动作的，例如,默认情况下点击一个< a>元素。
 
 ---
- **浏览器全屏**  
-```js
-// 方法必须放到用户触发的事件里面  
-e.click(function(){  
-    document.documentElement.webkitRequestFullScreen();  
-	document.webkitExitFullScreen();//退出全屏  
-})  
-// 除了opera不加前缀，还有moz；ie暂不支持；  
-// IE中用  
-function a(){  
-    var b=new ActiveXObject("Wscript.shell");  
-    b.sendKeys("{F11}");  
-}  
-a()
-```
-
----
-**模块化**  
-//最基本方式
-``` javascript
-var moudle=(function(){
-   var p=1;
-   var m1=function(){};
-   var m2=function(){}
-   return {m1:m1,m2:m2}
-})()
-```
 
 ## 滑动条与元素位置
 1. element.scrollIntoView();//js原生，让元素滚动到可见区域
@@ -85,19 +62,7 @@ element.position().left/top;
 1.document.cookie='name=hew;path=/;expires=UTCstring;max-age=秒'  //设置和获取  
 
 ## ajax
-var xhr=new XMLHttpRequest();  
-IE5,6用 new ActiveXObject('Microsoft.XMLHTTP');
-```javascript
-xhr.open('get','https://updateapp001.sinaapp.com/version.php',true);（true表示异步）//规定请求的内容
-xhr.send(null);//将请求发送到服务器
-xhr.onreadystatechange=function(){//这个事件函数放在哪里都可
-   if(xhr.readyState==4){//针对open方法可以调用并且接受了全部响应数据
-        if(xhr.status==200){//响应的http状态
-            alert(xhr.responseText);
-        }
-   }
-};
-```
+> 代码参考: [githubGist](https://gist.github.com/NameHewei/a312d0f6b0145c1eb827d2ab53877030)
 status 200表示成功，304表示 资源没有修改可以直接使用浏览器缓存  
 必须在调用open()方法之后且调用send()方法之前调用setRequestHeader()
 
