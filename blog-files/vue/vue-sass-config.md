@@ -1,6 +1,16 @@
 [toc]
 
-# vue中配置sass
+# vue
+> 更新时间： 2018-09-21
+## vue cli 3
+1. 选择 Manually select feature
+2. 选中 CSS Pre-processors
+3. 选择 scss/sass
+4. 其它选项按项目需要配置
+
+引用方式与老版本脚手架搭建的项目一致，如下
+
+## 老版本的脚手架搭建的项目
 ### 版本
 - webpack 3.6.0
 - vue 2.5.2
