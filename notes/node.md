@@ -12,6 +12,17 @@ ls 显示文件或目录 -l 列出文件详细信息l(list)；  -a  列出当前
 
 ---
 # npm
+
+**npm-shrinkwrap.json和package-lock.json区别**
+- shrinkwrap 向后兼容npm版本2,3和4
+- package-lock 只能被npm 5+识别
+- 可以通过运行npm shrinkwrap package-lock.json将现有的package-lock.json转换为npm-shrinkwrap.json
+- shrinkwrap应该用于库来保证安装程序包的每个人都获得完全相同的所有依赖项版本
+- package-lock允许安装程序包的人使用与package.json指定的版本范围兼容的任何版本的依赖项
+- npm install 操作会自动生成package-lock文件 并且更新该文件
+- 如果是用的cnpm安装的包 注意要npm install操作一次 更新package-lock文件
+
+---
 package.json中：  
 devdependencies表示开发过程中依赖的包    
 dependencies表示项目在生产环境中依赖的包    
