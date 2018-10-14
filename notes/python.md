@@ -13,7 +13,7 @@ pip install Scrapy
  - scrapy startproject youName  创建项目
  - scrapy genspider <name> <domain> 创建spider(在项目跟目录执行)
  - scrapy crawl spider名称
-    - 第一次执行会报错async语法错误 把用到改名称作为参数的文件全部作修改 把这个参数名改为其它即可
+    - 第一次执行会报错async语法错误 把用到该名称作为参数的文件全部作修改 把这个参数名改为其它即可
     - 报错 No module named 'win32api'： https://pypi.org/project/pypiwin32/#files（下载文件pypiwin32-223-py3-none-any.whl 执行 pip install pypiwin32-223-py3-none-any.whl ）
 
 - [scrapy.spidermiddlewares.offsite] DEBUG: Filtered offsite request to: 表示request的地址和allow_domain地址冲突，被过滤。
@@ -30,6 +30,6 @@ scrapy crawl spider名称 -o test.json
 text() 获取文本
 @属性名  获取属性值
 
-在父节点下又使用xpath路径前要加./
+在父节点下使用xpath路径前要加./
 
 去除换行空格用 xpath('normalize-space('.//div/text()')')
