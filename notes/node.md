@@ -12,10 +12,26 @@ ls 显示文件或目录 -l 列出文件详细信息l(list)；  -a  列出当前
 
 ---
 # npm
-package.json中：  
-devdependencies表示开发过程中依赖的包    
+
+**npm-shrinkwrap.json和package-lock.json区别**
+- shrinkwrap 向后兼容npm版本2,3和4
+- package-lock 只能被npm 5+识别
+- 可以通过运行npm shrinkwrap package-lock.json将现有的package-lock.json转换为npm-shrinkwrap.json
+- shrinkwrap应该用于库来保证安装程序包的每个人都获得完全相同的所有依赖项版本
+- package-lock允许安装程序包的人使用与package.json指定的版本范围兼容的任何版本的依赖项
+- npm install 操作会自动生成package-lock文件 并且更新该文件
+- 如果是用的cnpm安装的包 注意要npm install操作一次 更新package-lock文件
+
+---
+**package.json中：**  
+
+devdependencies表示开发过程中依赖的包
+
 dependencies表示项目在生产环境中依赖的包    
-包版本号前面的尖括号表示只限制版本号（比入^0.1.1,如果有小于1.0.0的版本都可自动更新，超过就保持0.9.9），波浪号表示只监控最小版本号的更新（如~0.1.2,当有大于改版本号且小于0.2.0才更新）  
+
+包版本号前面的尖括号表示只限制版本号（比入^0.1.1,如果有小于1.0.0的版本都可自动
+
+更新，超过就保持0.9.9），波浪号表示只监控最小版本号的更新（如~0.1.2,当有大于改版本号且小于0.2.0才更新）  
   “engines”:{  
   “node”:”>=0.10.0”  
 } //便是node版本需求  
@@ -211,7 +227,7 @@ exports是模块公开的接口
 require用于从外部获取一个模块接口及获取模块的exports对象
 
 ---
-常见的Content-Type
+### 常见的Content-Type
 
 application/x-www-form-urlebcoded 常见的form提交
 
@@ -226,6 +242,11 @@ text/xml  提交xml格式数据
 > GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
 
 - OPTIONS: 询问服务器支持的方法。当浏览器发现，是一个非简单请求，就自动发出一个"预检"请求，"预检"请求用的请求方法是OPTIONS
+
+- 当header 的content-type 类型是以下类型时不触发options
+  - application/x-www-form-urlencoded
+  - multipart/form-data
+  - text/plain
 
 
 
@@ -289,12 +310,6 @@ close callbacks
 
 
 # express
-
-先在项目中安装express模块(项目目录中)
-
-npm install express
-
----
 
 var express=require(express);
 

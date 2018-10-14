@@ -1,4 +1,7 @@
 [toc]
+
+# Javascript
+
 ---
 **复制内容**
 
@@ -13,18 +16,21 @@ document.execCommand("copy");
 - 函数调用是表达式
 
 ---
+**阻止a标签默认事件**
 - a href="javascript:void(0);" onclick="js-method()"  最周全的方法，onclick方法负责执行js函数，而void是一个操作符，void(0)返回undefined，地址不发生跳转。
 - a href="javascript:;" onclick="js_method()" 同上，只是执行了空代码。
 
- ---
+---
+ **ready与onload的区别**
  $(document).ready()是在DOM结构载入完后执行的，而window.onload是在所有文件都加载完后执行的。
 
- ---
+---
+**正序遍历与反序遍历**
 
- 反序更快 for(var i＝item.length;i--;) *注意最后的分号,该方法会从length-1开始*  
+反序更快 for(var i＝item.length;i--;) *注意最后的分号,该方法会从length-1开始*  
  
  ---
- continue | break | return  
+ **continue | break | return  区分**
  - break,continue是一起的，return 是函数返回语句，但是返回的同时也将函数停止。  
  - break和continue这两个应用的范围是退出循环或者switch语句，在其他地方使用会导致错误.    
  - continue(跳出本次循环)语句只能用在while语句、do/while语句、for语句、或者for/in语句的循环体内，在其它地方使用都会引起错误！
@@ -34,52 +40,9 @@ document.execCommand("copy");
  - return false的作用一般是用来取消默认动作的，例如,默认情况下点击一个< a>元素。
 
 ---
- **浏览器全屏**  
-```js
-// 方法必须放到用户触发的事件里面  
-e.click(function(){  
-    document.documentElement.webkitRequestFullScreen();  
-	document.webkitExitFullScreen();//退出全屏  
-})  
-// 除了opera不加前缀，还有moz；ie暂不支持；  
-// IE中用  
-function a(){  
-    var b=new ActiveXObject("Wscript.shell");  
-    b.sendKeys("{F11}");  
-}  
-a()
-```
 
----
-**模块化**  
-//最基本方式
-``` javascript
-var moudle=(function(){
-   var p=1;
-   var m1=function(){};
-   var m2=function(){}
-   return {m1:m1,m2:m2}
-})()
-```
-
-# JQuery
-- $(document).ready(function(){})可以简写成$(function(){});  
-- (function($){...})(jQuery)  目的是防止与变量冲突  
-- $.fn.extend({  hew:function(){console.log(123)}})  
-``` javascript
-$.extend({  hew:function(){console.log(12993)} })  
-$.hew();  //12993   
-$(‘#di’).hew() //123  
-var result=$.extend( true, {},
-{ name: "John", location: {city: "Boston",county:"USA"} },
-{ last: "Resig", location: {state: "MA",county:"China"} } ); 
-result={name:"John",last:"Resig",location:{city:"Boston",state:"MA",county:"China"}} //为true  
-result={name:"John",last:"Resig",location:{state:"MA",county:"China"}}  //为false
-```
-
-## 滑动条与元素位置  
-1. Jqurery中：srcollTop(100);scrollLeft():  设置或改变滑动条的位置；  
-animate({scrollTop:'10px'},100)；  
+## 滑动条与元素位置
+1. element.scrollIntoView();//js原生，让元素滚动到可见区域
 
 2. js中是element.scrollTop=100（scrollLeft）来设置或获取滑动条的位置;
 
@@ -87,57 +50,19 @@ animate({scrollTop:'10px'},100)；
 
 4. 谷歌:当scrollTop的值小于1时会直接返回0，所以用y=1除以a的x次方指数函数来趋近0来由快到慢的滑动。
 
-5. element.scrollIntoView();//js原生，让元素滚动到可见区域
-
 
 ## 元素的高度问题  
-- canvas对象有height和width属性可以直接.width获取
-- offsetHeight:包含padding和边框和滚动条||outerHeight()
-- scrollHeight:包括元素没有显示的内容的高度。
-- clientHeight:元素的可见区域不包括内边距和边框或滚动条有padding||innerHeight()
-- 窗口高度 document.documentElement.clientHeight
-- width - 设置或返回元素的宽度
-- innerWidth - 返回元素的宽度（包含 padding）
-- outerWidth - 返回元素的宽度（包含 padding 和 border）
-- $('p').offset()返回该元素相对文档的位置;  
-获取：$('p').offset().left/top;  
-设置：object={left:'',top:''};  
-$('p').offset(object)或$('p').offset({left:''});  
-```javascript
-$('p').offset(function(index,oldoffset){  
-//被选元素的（索引号，位置）  
-newPos=new Object();
-  newPos.left=oldoffset.left+100;
-  newPos.top=oldoffset.top+100;
-  return newPos;//必须要
-})
-//当有多个p元素时会循环执行
-```
+返回元素相对于父元素的位置的对象{left,top}  
 
-- jQuery中用position（）返回元素相对于父元素的位置的对象{left,top}  
 element.position().left/top;  
 对应js中的offsetLeft和offsetTop  
 用了position更精确。
 
-
-# JavaScript
 ## cookie
 1.document.cookie='name=hew;path=/;expires=UTCstring;max-age=秒'  //设置和获取  
 
 ## ajax
-var xhr=new XMLHttpRequest();  
-IE5,6用 new ActiveXObject('Microsoft.XMLHTTP');
-```javascript
-xhr.open('get','https://updateapp001.sinaapp.com/version.php',true);（true表示异步）//规定请求的内容
-xhr.send(null);//将请求发送到服务器
-xhr.onreadystatechange=function(){//这个事件函数放在哪里都可
-   if(xhr.readyState==4){//针对open方法可以调用并且接受了全部响应数据
-        if(xhr.status==200){//响应的http状态
-            alert(xhr.responseText);
-        }
-   }
-};
-```
+> 代码参考: [githubGist](https://gist.github.com/NameHewei/a312d0f6b0145c1eb827d2ab53877030)
 status 200表示成功，304表示 资源没有修改可以直接使用浏览器缓存  
 必须在调用open()方法之后且调用send()方法之前调用setRequestHeader()
 
@@ -164,36 +89,42 @@ syntax:JSON.stringify(value[, replacer[, space]])巴科斯范式(BNF)
 - space：缩进 | 空格 | 换行 （数字或\t 等）；大于 10，则文本缩进 10 个空格；一般设为4
 
 ---
-跨域：  
-Jquery方法：dataType:jsonp;  
-最好是后台设置：res.header("Access-Control-Allow-Origin", "*")  
-是否允许请求带有验证信息 Access-Control-Allow-Credentials:true 
 
-## 正则表达式
+## 正则表达式(regular expression)
 
 两种创建方式：  
-var regexp=new RegExp('12','g');  
-=/12/g;  //不适用于要用到变量，但是适用于有转义的，主要因为字符不加引号。  
-g:全局匹配  。查找所有的匹配而非在找到第一个匹配后就停止；  
-i:不分大小写；  
-m:多行匹配；
+```js
+const regexp1 = new RegExp('12','g');  
+const regexp2 = /12/g;  //不适用于要用到变量，但是适用于有转义的，主要因为字符不加引号。  
+```
+- g:全局匹配  。查找所有的匹配而非在找到第一个匹配后就停止；  
+- i:不分大小写；  
+- m:多行匹配；
 
 ---
-用选择'或'|时 ，要用（）分组将所有的内容括起来；
-
----
-$符号表示这个字符串的结束,并不是从字符最后面开始匹配.  
+- 用选择'或'|时 ，要用（）分组将所有的内容括起来；
+- \$ 符号表示这个字符串的结束,并不是从字符最后面开始匹配.  
 /^1\d{1}$/ 表示匹配以1开始的任意两位数(因为匹配完一位数字后,就表示要匹配的字符串结束了),而不是123这种还要从后面来匹配一次。
 
----
-\u4e00-\u9fa5表示在unicode表中的第一个汉字和最后一个汉字  
+- \u4e00-\u9fa5表示在unicode表中的第一个汉字和最后一个汉字  
 \un:匹配n，其中n是一个用四个十六进制数字表示的Unicode字符。例如，\u00A9匹配版权符号（©）。
 
----
-多种字符的匹配或：[0-9a-zA-Z]。  
+- 多种字符的匹配或：[0-9a-zA-Z]。  
 [025]:表示匹配数字0，2，5。
 
 ---
+var str = 'a123'
+- /a(?: 1)/.exec(str) 匹配返回的结果是：a1
+- /a(?=1)/.exec(str) 匹配返回的结果是：a
+- /a(?!2)/.exec(str) 匹配返回的结果是：a
+
+- /(?<=1)2/.exec(str) 匹配返回的结果是：2
+- /a(?<!a)2/.exec(str) 匹配返回的结果是：2
+
+都为非捕获
+
+---
+- \b:匹配单词边界
 - \d：匹配数字。  
 - .：表示匹配单个字符，除了换行和结束。  
 - \s：表示匹配空格
@@ -219,10 +150,6 @@ exec()还会返回两个属性，index（匹配字符的起始下标），input�
 RegExp.test()    检测到有就返回true
 
 ---
-- 删除字符中的非数字字符：
-```
-str.replace(/^[^1-9]+|[^0-9]+/g, '')
-```
 
 ## Object
 ```javascript
@@ -439,7 +366,7 @@ var d=new Date() d.toISOString()。//2017-01-09T06:19:11.004Z
 var d = new Date('2018-04-03T16:40:00'); 
 console.log(d.getTime())
 console.log(d.valueOf())
-console.log(Date.parse(d))
+console.log(Date.parse('datestring'))
 console.log(Date.now())
 console.log(Date.UTC(2018, 3, 3, 8, 40, 0))
 // 当给定的时间一样，返回值相同
@@ -879,7 +806,7 @@ console.log(b)  //[2,3,4]
 
 ---
 用...[1,2,3]替代apply方法来给函数传参
-```
+```js
 function f(x,y,z){
     console.log(`${x}-${y}-${z}`);
 }

@@ -159,8 +159,10 @@ margin:0 auto;居中
 label:为行内元素
 
 ---
-inline-block(可设置宽高并可在同一行):元素有input select  
-当使用行内元素时注意html中是否有换行或是空格，会被显示在页面上。
+**inline-block**
+可设置宽高并可在同一行:元素有input select;当使用行内元素时注意html中是否有换行或是空格，会被显示在页面上。
+
+inline-block，是基于baseline对齐的，大小不一会导致上下不齐，所以设置的时候最好设置vertical-align属性,top、bottom、middle都可
 
 ---
 img input 可以定义宽高；
