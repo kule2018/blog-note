@@ -34,7 +34,7 @@
 - [图片上传成功后返回图片服务器地址](https://github.com/NameHewei/blog/blob/master/blog-files/node/koarReServerAddress.md)
 
 ## python
-- [图片上传成功后返回图片服务器地址](https://github.com/NameHewei/blog/blob/master/blog-files/python/scrapy-start.md)
+- [scrapy 自学入门demo分享](https://github.com/NameHewei/blog/blob/master/blog-files/python/scrapy-start.md)
 
 
 ---
