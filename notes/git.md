@@ -1,10 +1,11 @@
 
 [TOC]  
-github  
+
+# github  
 直接访问版本号前7位也是可以访问的。  
 
 ---
-## git
+# git
 
 > 状态
 
@@ -74,4 +75,22 @@ git clone 会默认将本地与远程分支进行追踪
 
   相当于 git fetch origin 和git merge origin/remotebranch
 
+---
 
+- 取消最近一次的commit： **git reset --soft HEAD^**
+---
+
+- 更新远程跟踪分支：**git fetch origin**,获取远程的所有分支，不然branch -a 查看不到新的远程分支
+
+- git fetch origin master：只取回特定分支的更新
+
+---
+- git branch命令的 **-r** 选项，可以用来查看远程分支，**-a**选项查看所有分支
+
+---
+- 打tag 前请先commit； git tag -a v1.1.1 -m 'describe'； git push --tags；然后git push 否者当前分支对应的远程分支没有接收到本地最新代码
+
+---
+- 拉取远程分支并创建本地分支
+  - git checkout -b localBranch origin/originBranch
+  - git fetch origin originBranch:localBranch  //区别是不会切换到本地新分支
