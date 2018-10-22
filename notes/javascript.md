@@ -477,34 +477,17 @@ Window||document.body.onbeforeunload=function(e){
 ## Array
 > Javascript中存在一种名为伪数组的对象结构。比较特别的是 arguments 对象，还有像调用 getElementsByTagName ,document.childNodes之类的，它们返回NodeList对象都属于伪数组。不能应用 Array下的 push , pop 等方法。**Array.prototype.slice.call(arguments) || [].slice.call(arguments)**
 
-**map与forEach** 区别
-1. map会返回新数组  
-2. console.log(arr.forEach(function(v){console.log('v',v)}));//返回undefind
-3. map和set有forEach方法可以用
+### filter/map/forEach/some/every 区别
+- filter返回新的数组
+- map会返回新数组  
+- console.log(arr.forEach(function(v){console.log('v',v)}));//返回undefind
+- map和set有forEach方法可以用
+
+- some有返回值，some的回调函数有一个返回true，则返回true
+- every有返回值，some的回调函数每一个返回true，则返回true
 
 ### 数组去重
-```javascript	
-方法一：利用hash表
-Array.prototype.unique = function () {  
-	var result = [],hash={};
-	this.forEach(function (v) {
-		if (!hash[v]) {
-			hash[v]=true;
-			result.push(v);
-		}
-	});
-	return result;
-}
-方法二：利用set
-var set =new Set([array]);
-var tempArray=[];
-set.forEach(function(v){
-    tempArray.push(v)
-})
-
-得到数组[...set]
-//更多set返回值与array转换->查mdn
-```
+https://gist.github.com/NameHewei/b4cc79f09be425097a994fae4d9ed22e
 
 ---
 a[i++];先执行a[i]，再i++
