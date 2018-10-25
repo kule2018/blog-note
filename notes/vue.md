@@ -34,8 +34,6 @@
 
 11. v-model后不能跟表达式
 
-12. computed 不能传参
-
 ### 组件基础
 1. data 选项必须是一个函数，因为可以返回对对象的独立拷贝，避免相互影响
 2. 每个组件必须只有一个根元素
@@ -65,3 +63,49 @@
 2. 通过同一个router-view 进入的路由间切换, keep-alive 都有效,都会缓存页面。
 3. 只要通过keep-alive下的路由(前提是要包含在include中) 都会触发activated, 只有第一次进入会触发mounted（切换过router-view入口 再进入也会触发mounted）
 4. 注意include 如果用字符串值，后面名称与逗号之间不要有空格
+
+## 深入响应式原理
+ - 非侵入性的响应式系统
+ - 数据模型为js对象，对其修改时，视图更新
+
+### 如何追踪变化
+
+- vue将接收的data全部用Object.defineProperty把属性转为getter/setter(导致不支持ie8以及一下)
+
+- 属性被访问和修改时通知变化
+
+- 每个组件实例都有对应的watcher实例对象（它会在组件渲染的过程中把属性记录为依赖，当依赖的setter被调用时，会通知watcher重新计算，从而使相关组件更新）
+
+### 检测变化的注意事项
+
+- 只有在data对象上的属性才是响应式的
+
+- 改变对象和数组的一些情况不会被检测到更新
+
+- 要用到的状态，提前在data对象中声明
+
+### 异步更新队列
+
+
+# api once-over
+
+## 计算属性
+computed 不能传参
+
+默认只有getter
+```js
+computed: {
+    testComputed: {
+        get() {
+            return this.name // name变动时调用 getter
+        },
+
+        set(v) {
+            this.name = v
+        }
+    }
+}
+
+this.testComputed = 'new name' // 触发setter
+```
+
