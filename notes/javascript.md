@@ -475,7 +475,13 @@ Window||document.body.onbeforeunload=function(e){
 ---
 
 ## Array
-> Javascript中存在一种名为伪数组的对象结构。比较特别的是 arguments 对象，还有像调用 getElementsByTagName ,document.childNodes之类的，它们返回NodeList对象都属于伪数组。不能应用 Array下的 push , pop 等方法。**Array.prototype.slice.call(arguments) || [].slice.call(arguments)**
+**伪数组**
+
+Javascript中存在一种名为伪数组的对象结构。比较特别的是 arguments 对象，还有像调用 getElementsByTagName ,document.childNodes之类的，它们返回NodeList对象都属于伪数组。不能应用 Array下的 push , pop 等方法。
+
+**Array.prototype.slice.call(arguments) || [].slice.call(arguments)**
+
+---
 
 ### filter/map/forEach/some/every 区别
 - filter返回新的数组
