@@ -5,15 +5,30 @@
 ---
 **复制内容**
 
-先select()选中
+```
+<input type="text" id="text">
+<button onclick="copy()">获取焦点</button>
 
-document.execCommand("copy");
+function copy() {
+  document.getElementById('text').select() // 先select()选中(只有textarea和input有select方法)
+  document.execCommand("copy");
+}
+
+// 还有新的方法如createRange()等
+```
 
 ---
 **表达式** 
 > 是由运算元和运算符(可选)构成，并产生运算结果的语法结构(了解即可，不必纠结).
 - 所有的表达式都有返回值(没有返回undefined)
 - 函数调用是表达式
+- this, null, arguments,变量，字面量（仅包括数字、布尔值、字符串、正则字面量） 
+
+
+**语句**
+- 典型的有循环语句和if语句，
+- 使某事发生的指令，没有返回值
+- 也可以是由大括号括起来的复合语句
 
 ---
 **阻止a标签默认事件**
@@ -23,11 +38,27 @@ document.execCommand("copy");
 ---
  **ready与onload的区别**
  $(document).ready()是在DOM结构载入完后执行的，而window.onload是在所有文件都加载完后执行的。
+ ```js
+ // 原生实现ready
+if(document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', handler, false);
+    document.addEventListener('readystatechange', handler, false); //IE9+
+    window.addEventListener('load', handler, false);
+}else if(document.attachEvent) {
+    document.attachEvent('onreadystatechange', handler);
+    window.attachEvent('onload', handler);
+}
+
+function handler() {
+    //注销事件, 避免反复触发
+    document.removeEventListener('DOMContentLoaded',arguments.callee, false);
+}
+ ```
 
 ---
 **正序遍历与反序遍历**
 
-反序更快 for(var i＝item.length;i--;) *注意最后的分号,该方法会从length-1开始*  
+反序更快 for(var i＝item.length;i--；) *注意最后的分号,该方法会从length-1开始*  
  
  ---
  **continue | break | return  区分**
@@ -59,31 +90,26 @@ element.position().left/top;
 用了position更精确。
 
 ## cookie
-1.document.cookie='name=hew;path=/;expires=UTCstring;max-age=秒'  //设置和获取  
-
-## ajax
-> 代码参考: [githubGist](https://gist.github.com/NameHewei/a312d0f6b0145c1eb827d2ab53877030)
-status 200表示成功，304表示 资源没有修改可以直接使用浏览器缓存  
-必须在调用open()方法之后且调用send()方法之前调用setRequestHeader()
-
----
-ajax提交表单：FormData对象  
-var fd=new FormData();
+1. document.cookie='name=hew;path=/;expires=UTCstring;max-age=秒'  //设置和获取  
 
 ---
 var ojb=JSON.parse('[{"a":"0","b":"1"}]')  
 //数字可以不加引号,并且可以是数组与对象的多重结合，也可以只有对象，里面只能用双引号  
-var ojb=JSON.parse(参数1，function（key,value）{  
-if(key=='hew'){return hew+value;}  
-else{  
-  return value;  
-}
+```js
+var ojb=JSON.parse('{"hew":"yes"}',function(key,value){  
+    if(key=='hew'){
+        return 'hew'+value;
+    }  
+    else{  
+        return value;  
+    }
 });
-
+console.log(ojb) // {hew: "hewyes"}
+```
 ---
 **stringify:**
 
-syntax:JSON.stringify(value[, replacer[, space]])巴科斯范式(BNF)
+syntax:JSON.stringify(value[, replacer[, space]]) **巴科斯范式(BNF)**
 - value:数组与对象的结合;
 - replacer:函数或是数组；一般设为null；
 - space：缩进 | 空格 | 换行 （数字或\t 等）；大于 10，则文本缩进 10 个空格；一般设为4
@@ -152,6 +178,7 @@ RegExp.test()    检测到有就返回true
 ---
 
 ## Object
+
 ```javascript
 let {keys,values,entries}=Object;//返回的都是数组
 let obj = { a: 1, b: 2, c: 3 };
@@ -159,39 +186,46 @@ for(let [key,value] of entries(obj){
     console.log([key, value]);
 } // ['a', 1], ['b', 2], ['c', 3];
 ```
+
 ### call() || apply() || bind()
-前两者用法一样除了传参方式  
+前两者用法一样，除了传参方式  
+
+用法如下：
 ```javascript
-// 子构造函数调用父构造函数的方法
+// 1.子构造函数调用父构造函数的方法
 function Fn(name, age) {
 	this.name = name;
-	this.age = age;
+    this.age = age;
 }
 function F1(name, age, num) {
-	Fn.call(this, name, age); //让Fn内部的this指向F1的实例对象
-	this.num = num;
+    //让Fn内部的this指向F1的实例对象,由于执行了Fn(),所以给实例对象也绑定了Fn中的属性
+    Fn.call(this, name, age); 
+    this.num = num;
 }
 
 var f1 = new F1(1, 2, 3)
 
-console.log(f1.name, f1.age, f1.num);
+console.log(f1.name, f1.age, f1.num); // 1，2，3
 
-//调用函数并指定上下文‘this’
+// 2.调用函数并指定上下文‘this’
 var obj={name:1,age:2};
 function f2(){
 	console.log('other',this.name,this.age);
 }
-f2.call(obj);
+f2.call(obj); // other 1 2
 
-//使用apply和内置函数
+// 3.使用apply和内置函数
 Math.min.apply(null,[100,2,3])  // 返回 2
 Math.max.apply(null|Math,[1,2,3]) // 返回3
+
 Array.prototype.push.apply(array1, array2);
 ```
 
 **bind(Object,args,args…)**  
 > 会创建一个新函数，第一个参数将作为它运行时的this。
-bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
+
+bind 是返回对应函数，便于之后调用；apply 、call 则是立即调用 。
+
 ```javascript
 var module = { x: 81,getX: function(a,b) { return this.x+a+b; }};
 retrieveX=function(a,b){ return this.x+a+b; }
@@ -212,7 +246,7 @@ Fn.prototype.do=function(some){
 function F1(name){
 	Fn.call(this,name);//不会继承原型方法
 }
-F1.prototype=Object.create(Fn.prototype)||new Fn(); 用原型即可以不用重复声明函数
+F1.prototype=Object.create(Fn.prototype)||new Fn(); // 用原型即可以不用重复声明函数
 F1.prototype.way=function(way){
 	console.log(way)
 }
@@ -590,11 +624,12 @@ function A(){
 }
 ```
 A.a3=3;//静态属性，在构造实例的时候，实例是不能访问的，只有用访问构造函数的该属性才可以，实例名.constructor.属性名。  
-this指的是调用函数的对象。  
-在函数中用this设置的属性只有在实例化后才能调用。  
-但是在外部用prototype设置的属性可以用prototype来调用。  
-当构造函数没有返回对象时，会默认返回this,当返回了其它的除变量外，也会默认返回当前构造函数的this。  
-当参数是匿名函数时，属于全局调用，所以调用对象是window，如setTimeout（function（）{}，1000）。
+
+**this指向**
+- this指的是调用函数的对象。  
+- 在函数中用this设置的属性只有在实例化后才能调用。但是在外部用prototype设置的属性可以用prototype来调用。  
+- 当构造函数没有返回对象时，会默认返回this,当返回了其它的除变量外，也会默认返回当前构造函数的this。  
+- 当参数是匿名函数时，属于全局调用，所以调用对象是window，如setTimeout（function（）{}，1000）。
 
 
 ## String
@@ -886,3 +921,28 @@ import 同时引入： import a, { each } from 'lodash';
 1. 扩展运算符与函数参数结合
 2. 当参数是数组时不再依赖apply拆分数组为参数
 3. 任何 Iterator 接口的对象，都可以通过...扩展运算符转为真正的数组
+
+# ES7-ES8
+
+## es7
+
+- includes: [].includes('some value') // return true/false ,与indexOf相比，可以避免返回的0，判断时的错误
+
+- 求幂 Math.pow() 的简洁写法 ** 
+Math.pow(3, 3) === 3 ** 3
+
+## es8
+- String.prototype.padStart(总长度, 被填充字符串) // 返回新的字符串 
+'789'.padStart(10, '123')  // "1231231789"
+
+- String.prototype.padEnd(总长度, 被填充字符串)
+'123'.padEnd(5, '789')  // "12378"
+
+- Object.entries()
+Object.entries({ a: 1, b: 2 }) // [['a', 1], ['b', 2]]
+
+- Object.values()
+
+- 异步函数 async/await 
+
+- Object.getOwnPropertyDescriptors

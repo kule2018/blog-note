@@ -34,6 +34,8 @@ function getCookieValue(key) {
 /^[+]?\d+([.]\d+)?$/
 ```
 
+---
+
 # time format
 ```js
 function(dateString = Date(), type = 'date', separator = '/') {
@@ -59,8 +61,10 @@ function(dateString = Date(), type = 'date', separator = '/') {
     return commandObj[type]()
 }
 ```
+---
+# 防抖节流
 
-防抖（debounce）：在没有被执行前，又触发，重新开始计时
+**防抖（debounce）：在没有被执行前，又触发，重新开始计时**
 
 应用场景：
 - 防止连续多次点击按钮，提交信息。
@@ -100,10 +104,10 @@ fn()
 ```
 
 
-节流（debounce）：规定时间内无论被触发多少次，都执行一次
+**节流（throttle）：规定时间内无论被触发多少次，都执行一次**
 
 应用场景：
-连续的操作，不仅仅是最后一次触发需要执行，中途的也需要执行，但不需太过频繁
+- 连续的操作，不仅仅是最后一次触发需要执行，中途的也需要执行，但不需太过频繁
 
 ```js
 function throttle (time) {
@@ -129,3 +133,18 @@ const clear = setInterval(() => {
 }, 1000)
 
 ```
+---
+
+# Object.create()
+
+> Object.create(proto, [propertiesObject])
+
+proto: 为新创建的对象的原型对象
+
+propertiesObject：可选参数，不是添加到原型上的枚举属性，以及这些属性的描述，名称等，且对应Object.defineProperties()的第二个参数
+
+返回值：指定了原型对象和属性的新对象
+
+
+
+
