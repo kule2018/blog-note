@@ -16,8 +16,17 @@ const fs = require('fs')
 const FILE_URL = 'your file url'
 
 // 由于node没有提供直接获取本机IP的方法所以用以下方法迂回解决
-const CURRENT_IP = os.networkInterfaces()['以太网'][1].address
+// 可打印NETWORK查看信息
+const NETWORK = os.networkInterfaces()
+let CURRENT_IP = ''
 
+Object.keys(NETWORK).forEach((v => {
+    for (let i = 0; i < NETWORK[v].length; i++) {
+        if(!NETWORK[v][i].internal&&NETWORK[v][i].family.toLocaleLowerCase() === 'ipv4') CURRENT_IP =  NETWORK[v][i].address  
+    }
+}));
+
+// 修改文件内容
 fs.readFile(FILE_URL, 'utf8', (err, data) => {
     if (err) throw err
     // 这里的正则根据文件具体代码而定

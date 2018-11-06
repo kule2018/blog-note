@@ -514,10 +514,14 @@ Window||document.body.onbeforeunload=function(e){
 Javascript中存在一种名为伪数组的对象结构。比较特别的是 arguments 对象，还有像调用 getElementsByTagName ,document.childNodes之类的，它们返回NodeList对象都属于伪数组。不能应用 Array下的 push , pop 等方法。
 
 **Array.prototype.slice.call(arguments) || [].slice.call(arguments)**
+```js
+const obj={length:2,0:'first',1:'second'};
+Array.prototype.slice.call(obj);//  ["first", "second"]
+```
 
 ---
 
-### filter/map/forEach/some/every 区别
+### filter/map/forEach/some/every/find/findIndex
 - filter返回新的数组
 - map会返回新数组  
 - console.log(arr.forEach(function(v){console.log('v',v)}));//返回undefind
@@ -525,6 +529,9 @@ Javascript中存在一种名为伪数组的对象结构。比较特别的是 arg
 
 - some有返回值，some的回调函数有一个返回true，则返回true
 - every有返回值，some的回调函数每一个返回true，则返回true
+
+- find 返回第一个符合的值
+- find 返回第一个符合的值的数组下标
 
 ### 数组去重
 https://gist.github.com/NameHewei/b4cc79f09be425097a994fae4d9ed22e
