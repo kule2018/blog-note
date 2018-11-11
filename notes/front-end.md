@@ -35,9 +35,29 @@ objA.valueA = null;
 但设置一个值为 undefined 是不合理的  
 
 # 事件
->任意事件触发后三个阶段：捕获，目标，冒泡。addeventListener(,,false默认(冒泡阶段执行)||true)
+- 任意事件触发后三个阶段：捕获（window到目标），目标，冒泡。addeventListener(,,false默认(冒泡阶段执行)||true)
+
+```html
+<div id="outDiv">
+  <button id="btn">按钮</button>
+</div>
+```
+```js
+document.getElementById('btn').addEventListener('click',() => {
+  console.log('button 冒泡阶段')
+}, false)
+
+document.getElementById('outDiv').addEventListener('click',() => {
+  console.log('外层 div 捕获阶段')
+}, true)
+
+// 点击按钮返回
+// 外层 div 捕获阶段
+// button 冒泡阶段
+```
 
 >attachEvent('onclick',function(){}) //兼容ie8   
+
 addeventListener('click',function(){},false) //w3c
 
 # event对象

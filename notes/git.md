@@ -1,6 +1,14 @@
 
 [TOC]  
 
+# 报错信息
+
+> fatal: unable to access 'https://github.com/NameHewei/blog.git/': OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443
+
+检查是否是开了代理
+
+---
+
 # github  
 直接访问版本号前7位也是可以访问的。  
 
@@ -20,7 +28,7 @@ X：未知状态
 搜索：man git diff-files。
 
 ---
->Linux或Mac系统使用LF作为行结束符
+- Linux或Mac系统使用LF作为行结束符
 
 ---
 git config - -system   

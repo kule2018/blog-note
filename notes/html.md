@@ -342,7 +342,7 @@ Notification.requestPermission(function(permission){}),方法要用onclick等用
     - title：新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null。
     - url：新的网址，必须与当前页面处在同一个域。浏览器的地址栏将显示这个网址。
 
-2. history.replaceState();
+2. history.replaceState(参数同上);
 
 
 
