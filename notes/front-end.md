@@ -34,44 +34,6 @@ undefined 表示根本不存在定义。
 objA.valueA = null;  
 但设置一个值为 undefined 是不合理的  
 
-# 事件
-- 任意事件触发后三个阶段：捕获（window到目标），目标，冒泡。addeventListener(,,false默认(冒泡阶段执行)||true)
-
-```html
-<div id="outDiv">
-  <button id="btn">按钮</button>
-</div>
-```
-```js
-document.getElementById('btn').addEventListener('click',() => {
-  console.log('button 冒泡阶段')
-}, false)
-
-document.getElementById('outDiv').addEventListener('click',() => {
-  console.log('外层 div 捕获阶段')
-}, true)
-
-// 点击按钮返回
-// 外层 div 捕获阶段
-// button 冒泡阶段
-```
-
->attachEvent('onclick',function(){}) //兼容ie8   
-
-addeventListener('click',function(){},false) //w3c
-
-# event对象
-1. event.stopPropagation传播():阻止事件传递(相同)，不管是冒泡还是捕获；IE8以及以下版本用event.cancelBubble冒泡 =true;
-2. event.target   返回触发此事件的元素(可用于事件委托),IE下是event.srcElement;
-3. 添加的事件函数中用return false来实现stopPropagation()和preventDefault()的功能。
-
-# 事件委托优缺点
-1. 节省内存，减少事件注册。
-2. 子对象动态绑定。
-3. 若把所有事件用代理方式容易出现误判。
-
-# cookie
-删除 同名加max-age=0
 
 # 提升用户体验
 **ajax** ：表单验证时的实时验证，局部的dom改写。  

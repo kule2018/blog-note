@@ -281,6 +281,8 @@ promise的回掉会进入异步任务的“微任务”队列
 
 ### 事件循环
 
+[https://yuchengkai.cn/docs/zh/frontend/browser.html#node-%E4%B8%AD%E7%9A%84-event-loop](https://yuchengkai.cn/docs/zh/frontend/browser.html#node-%E4%B8%AD%E7%9A%84-event-loop)
+
 事件初始化，会先完成下面事情：
 
 同步任务
@@ -296,17 +298,21 @@ promise的回掉会进入异步任务的“微任务”队列
 
 每一轮六个阶段依次执行
 
-timers
+1. timers:
+  执行setTimeout 和setInterval,他们设置的时间并不是准确的执行时间，而是到了事件后，尽快的执行，因为系统可能因为其它而被耽误
+  范围[1, 2147483647]，不在设为1
 
-I/O callbacks
+2. I/O callbacks:
+  执行除了 close 事件，定时器和 setImmediate 的回调
 
-idle, prepare
+3. idle, prepare:
+  idle, prepare 阶段内部实现
 
-poll
+4. poll
 
-check
+5. check
 
-close callbacks
+6. close callbacks
 
 
 # express
