@@ -1,6 +1,25 @@
 [toc]
 
 # Javascript
+---
+一般的函数调用都是同步
+```js
+function ss() {
+	var i=0;
+	while(i<10000000000){
+		i++
+	}
+	console.log(12)
+}
+ss()
+console.log(34)
+
+// 先返回12，再返回34
+```
+
+---
+**setTimeout**
+第三个及之后的参数都作为回调函数的参数
 
 ---
 **复制内容**
@@ -35,6 +54,7 @@ function copy() {
 - a href="javascript:void(0);" onclick="js-method()"  最周全的方法，onclick方法负责执行js函数，而void是一个操作符，void(0)返回undefined，地址不发生跳转。
 - a href="javascript:;" onclick="js_method()" 同上，只是执行了空代码。
 
+
 ---
  **ready与onload的区别**
  $(document).ready()是在DOM结构载入完后执行的，而window.onload是在所有文件都加载完后执行的。
@@ -55,11 +75,13 @@ function handler() {
 }
  ```
 
+
 ---
 **正序遍历与反序遍历**
 
-反序更快 for(var i＝item.length;i--；) *注意最后的分号,该方法会从length-1开始*  
+反序更快 for(var i＝item.length; i--; ) *注意最后的分号,该方法会从length-1开始*  
  
+
  ---
  **continue | break | return  区分**
  - break,continue是一起的，return 是函数返回语句，但是返回的同时也将函数停止。  
@@ -600,12 +622,12 @@ var function_name = new Function(arg1, arg2, ..., argN, function_body)
 
 ---
 - 变量提升
- 1. 变量提升，很简单，就是把变量提升提到函数的top的地方  
-     (function(){  
-		 alert(a);  // undefind  
-		 var a=12;  
-	 })()   
-  2. 函数提升，把整个函数都提到前面去，只用声明函数可以提升，表达式函数不能   
+1. 变量提升，很简单，就是把变量提升提到函数的top的地方  
+    (function(){  
+        alert(a);  // undefind  
+        var a=12;  
+    })()   
+2. 函数提升，把整个函数都提到前面去，只用声明函数可以提升，表达式函数不能   
   function a() {  b();  //可以执行  function b(){} }
 3. let 不会变量提升；作用域是块级；不允许同一域重复声明；
 ---
