@@ -951,6 +951,30 @@ import 同时引入： import a, { each } from 'lodash';
 2. 当参数是数组时不再依赖apply拆分数组为参数
 3. 任何 Iterator 接口的对象，都可以通过...扩展运算符转为真正的数组
 
+## Proxy
+'拦截'对目标对象的访问
+
+> Proxy(target,handler)
+
+target：要拦截的对象
+
+handler：值为对象，拦截行为
+
+```js
+const proxy = new Proxy({},{
+    get(target,key,receiver){
+        console.log('get',key)
+        return Reflect.get(target,key,receiver)
+    },
+})
+
+```
+
+
+
+
+---
+
 # ES7-ES8
 
 ## es7
