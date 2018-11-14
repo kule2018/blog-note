@@ -18,6 +18,29 @@ console.log(34)
 ```
 
 ---
+如果catch和finally中再抛出异常需要外部再添加try-catch
+
+finally 如果返回了值 将作为整个try-catch-finally块的返回值,外层如果还有try-catch将无法捕获异常，且外层要包裹函数，作为函数返回值。
+```js
+try{
+
+} catch (error) {
+
+} finally {
+    // 无论是否有异常，finally中的语句都会执行
+}
+```
+**throw 方法：**
+
+用此方法抛出错误，后续的代码将不会执行，错误会被catch捕获，如果没有catch将其捕获，程序将终止
+
+new Error([message[, fileName[, lineNumber]]])
+- chrome 不支持后两个参数
+- 用new和不用，输出的结果一样
+- 还有其它类型错误：ReferenceError（引用错误）,TypeError(类型错误)，RangeError(范围错误) 等
+
+
+---
 **setTimeout**
 第三个及之后的参数都作为回调函数的参数
 
@@ -960,18 +983,57 @@ target：要拦截的对象
 
 handler：值为对象，拦截行为
 
+Proxy 是针对Proxy实例的，并不针对目标对象(target)
+
+如果handler不设拦截，访问proxy就等同与 target
+
 ```js
-const proxy = new Proxy({},{
+const target = {
+    name: 'hew'
+}
+Object.defineProperty(target,'name',{
+    value: 'hew',
+    writable: false
+});
+const handler = {
+    // 三个参数，receiver表示操作行为所针对的对象，一般就是proxy实例
     get(target,key,receiver){
-        console.log('get',key)
-        return Reflect.get(target,key,receiver)
+        if(key in target) {
+            return target[key]
+        } else {
+            throw new ReferenceError(`${key}, does not exist`)
+        }
     },
-})
+    // 严格模式下，如果没有返回true会报错
+    // 如果目标对象的属性为writadble，那相对于该属性，set方法失效
+    set(target, key, value) {
+        if (key === 'age') {
+            if(!Number.isInteger(value)) throw new TypeError('is not integer')
+            if(value>10) throw new RangeError('need less than 10')
+        }
 
+        target[key] = value
+    },
+
+    // 拦截函数的调用，call，apply操作
+    apply(target, ctx, args) {
+        return args
+    },
+
+    deleteProperty(target, key) {
+        console.log('delete', key);
+        delete target[key]
+        return true
+    }
+}
+
+const proxy = new Proxy(target, handler)
+
+// proxy.age
+// proxy.age = 5.5
+// proxy.name = 23
+console.log(proxy);
 ```
-
-
-
 
 ---
 
