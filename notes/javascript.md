@@ -974,7 +974,7 @@ import 同时引入： import a, { each } from 'lodash';
 2. 当参数是数组时不再依赖apply拆分数组为参数
 3. 任何 Iterator 接口的对象，都可以通过...扩展运算符转为真正的数组
 
-## Proxy
+## Proxy defineProperty defineProperties
 '拦截'对目标对象的访问
 
 > Proxy(target,handler)
@@ -991,10 +991,6 @@ Proxy 是针对Proxy实例的，并不针对目标对象(target)
 const target = {
     name: 'hew'
 }
-Object.defineProperty(target,'name',{
-    value: 'hew',
-    writable: false
-});
 const handler = {
     // 三个参数，receiver表示操作行为所针对的对象，一般就是proxy实例
     get(target,key,receiver){
@@ -1034,6 +1030,51 @@ const proxy = new Proxy(target, handler)
 // proxy.name = 23
 console.log(proxy);
 ```
+
+Object.create(proto, [propertiesObject])
+
+利用现有对象创建新对象的__proto__
+```js
+const a = Object.create({
+    name: 'hew'
+}, {
+    age: {
+        set(value){
+            console.log("can't set", value);
+            return value
+        },
+        get() {
+            return 250
+        }
+    }
+})
+a.age=12
+console.log(a.age);
+```
+
+```
+Object.defineProperty(obj, prop, descriptor),在现有对象上新建一个属性，或修改现有属性，并返回这个对象
+Object.defineProperties(obj, props)
+props: {
+    property: descriptor
+}
+descriptor: {
+    configurable: 默认false；表示属性是否能删除，以及除writeable以外的属性可否被修改；
+    writable: 默认true；属性值可否被修改
+    enumerable: 默认true 属性是否可以被for...in和Object.keys()获取
+    value: 属性值
+    get() {}
+    set() {}  当设置了get或set后不能设置value或writeable
+}
+```
+
+Proxy 与 Object.defineProperty 对比
+
+Object.defineProperty
+
+- 只能对属性进行数据劫持，所以需要深度遍历整个对象
+
+- 对于数组不能监听到数据的变化
 
 ---
 
