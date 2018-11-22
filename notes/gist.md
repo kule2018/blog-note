@@ -34,6 +34,10 @@ function getCookieValue(key) {
 /^[+]?\d+([.]\d+)?$/
 ```
 
+> Remove the leading and trailing Spaces
+```js
+string.replace(/(^\s*|\s*$)/g, '')
+```
 ---
 
 # time format
@@ -134,16 +138,6 @@ const clear = setInterval(() => {
 
 ```
 ---
-
-# Object.create()
-
-> Object.create(proto, [propertiesObject])
-
-proto: 为新创建的对象的原型对象
-
-propertiesObject：可选参数，不是添加到原型上的枚举属性，以及这些属性的描述，名称等，且对应Object.defineProperties()的第二个参数
-
-返回值：指定了原型对象和属性的新对象
 
 
 

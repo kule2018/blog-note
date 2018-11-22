@@ -183,6 +183,8 @@ const regexp2 = /12/g;  //不适用于要用到变量，但是适用于有转义
 - 多种字符的匹配或：[0-9a-zA-Z]。  
 [025]:表示匹配数字0，2，5。
 
+- \s: 匹配任何空白字符，包括空格、制表符、换页符等等; \S: 非空白字符
+
 ---
 var str = 'a123'
 - /a(?: 1)/.exec(str) 匹配返回的结果是：a1
@@ -1024,16 +1026,18 @@ const handler = {
 }
 
 const proxy = new Proxy(target, handler)
-
-// proxy.age
-// proxy.age = 5.5
-// proxy.name = 23
 console.log(proxy);
 ```
 
 Object.create(proto, [propertiesObject])
 
-利用现有对象创建新对象的__proto__
+# Object.create(proto, [propertiesObject])
+
+proto: 新对象的__proto__
+
+propertiesObject：可选参数，添加到原型上的枚举属性，以及这些属性的描述，名称等，且对应Object.defineProperties()的第二个参数
+
+返回值：指定了原型对象和属性的新对象
 ```js
 const a = Object.create({
     name: 'hew'
