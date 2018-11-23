@@ -78,3 +78,8 @@ click 300ms 延迟
 tap 300ms延迟导致 底层的元素的cklic事件被触发  所以底层最好也用tap事件
 
 ios 弹性滚动 over-scroll：touch
+
+-   window.location.reload()
+                setTimeout(() => {
+                    window.location.href = window.location.href.replace(/#.*/g,'');
+                }, 300);
