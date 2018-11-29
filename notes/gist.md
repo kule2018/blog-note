@@ -2,64 +2,74 @@
 
 # RegExp
 
-> phone number
+- phone number 电话号码
 ```js
 /^(1[356789]\d|14[57])\d{8}$/
 ```
+---
 
-> replace all non-numeric characters and starting with 0
-```js
-replace(/^[^1-9]+|[^\d]+/g, '')
-```
-
-> integer
+- integer 整数
 ```js
 /(^-[1-9]|^0$|^[1-9])\d*$/
 ```
+---
 
-> positive integer
+- positive integer 正整数
 ```js
 /^[1-9]\d*$/
 ```
+---
 
-> cookie
+- positive (integers or decimals) 正数和零
+```js
+/(^0|^[1-9]\d*)([.]\d+)?$/
+```
+
+---
+
+- cookie 获取某个cookie值
 ```js
 function getCookieValue(key) {
   var reg = new RegExp(`${key}=(.*)(;|$)`, 'i')
 }
 ```
 
-> positive (integers or decimals) 
-```js
-/^[+]?\d+([.]\d+)?$/
-```
+---
 
-> Remove the leading and trailing Spaces
+- Remove the leading and trailing Spaces 删除首尾空格
 ```js
 string.replace(/(^\s*|\s*$)/g, '')
 ```
+
 ---
 
-# time format
+# time format 时间格式化
 ```js
-function(dateString = Date(), type = 'date', separator = '/') {
-    const date = (typeof dateString) === 'object' ? dateString : new Date(dateString)
-    
-    const addZero = (n) => n < 10 ? `0${n}` : n
+function formatTime(data = {}) {
+    const {
+        time: time = Date(),
+        type: type = 'dateTime',
+        dateSeparator: dateSeparator = '-',
+        timeSeparator: timeSeparator = ':'
+    } = data 
+    const timeObj = (typeof time) === 'object' ? time : new Date(time)
+    const addZeroCharacter = (n) => n < 10 ? `0${n}` : n
 
-    let y = date.getFullYear(),
-        mon = date.getMonth() + 1,
-        day = date.getDate(),
-        h = date.getHours(),
-        m = date.getMinutes(),
-        s = date.getSeconds();
-
+    let y = timeObj.getFullYear(),
+        mon = timeObj.getMonth() + 1,
+        day = timeObj.getDate(),
+        h = timeObj.getHours(),
+        m = timeObj.getMinutes(),
+        s = timeObj.getSeconds();
     let re = ''
 
+    const dateString = `${y}${dateSeparator}${addZeroCharacter(mon)}${dateSeparator}${addZeroCharacter(day)}`
+    const timeString = `${addZeroCharacter(h)}${timeSeparator}${addZeroCharacter(m)}${timeSeparator}${addZeroCharacter(s)}`
+
     const commandObj = {
-        date: () => `${y}${separator}${addZero(mon)}${separator}${addZero(day)}`,
-        time: () => `${addZero(h)}${separator}${addZero(m)}${separator}${addZero(s)}`,
-        dateTime: () => `${y}${separator}${addZero(mon)}${separator}${addZero(day)} ${addZero(h)}${separator}${addZero(m)}${separator}${addZero(s)}`
+        date: () => dateString,
+        time: () => timeString,
+        dateTime: () => `${dateString} ${timeString}`
     }
 
     return commandObj[type]()

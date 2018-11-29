@@ -574,13 +574,13 @@ Array.prototype.slice.call(obj);//  ["first", "second"]
 - filter返回新的数组
 - map会返回新数组  
 - console.log(arr.forEach(function(v){console.log('v',v)}));//返回undefind
-- map和set有forEach方法可以用
+- map 和 set 有 forEach 方法可以用
 
-- some有返回值，some的回调函数有一个返回true，则返回true
-- every有返回值，some的回调函数每一个返回true，则返回true
+- some有返回值，some 的回调函数有一个返回 true，则返回true
+- every有返回值，some 的回调函数每一个返回 true，则返回true
 
 - find 返回第一个符合的值
-- find 返回第一个符合的值的数组下标
+- findIndex 返回第一个符合的值的数组下标 与indexOf 区别为传入的参数，前者为函数
 
 ### 数组去重
 https://gist.github.com/NameHewei/b4cc79f09be425097a994fae4d9ed22e
