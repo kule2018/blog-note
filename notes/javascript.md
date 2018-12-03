@@ -183,9 +183,13 @@ const regexp2 = /12/g;  //不适用于要用到变量，但是适用于有转义
 - 多种字符的匹配或：[0-9a-zA-Z]。  
 [025]:表示匹配数字0，2，5。
 
+- {} {n} 匹配n次；{n,} 最少匹配n次；{n,m} 最少 n次 最多 m次
+
+- \s: 匹配任何空白字符，包括空格、制表符、换页符等等; \S: 非空白字符
+
 ---
 var str = 'a123'
-- /a(?: 1)/.exec(str) 匹配返回的结果是：a1
+- /a(?:1)/.exec(str) 匹配返回的结果是：a1
 - /a(?=1)/.exec(str) 匹配返回的结果是：a
 - /a(?!2)/.exec(str) 匹配返回的结果是：a
 
@@ -570,13 +574,13 @@ Array.prototype.slice.call(obj);//  ["first", "second"]
 - filter返回新的数组
 - map会返回新数组  
 - console.log(arr.forEach(function(v){console.log('v',v)}));//返回undefind
-- map和set有forEach方法可以用
+- map 和 set 有 forEach 方法可以用
 
-- some有返回值，some的回调函数有一个返回true，则返回true
-- every有返回值，some的回调函数每一个返回true，则返回true
+- some有返回值，some 的回调函数有一个返回 true，则返回true
+- every有返回值，some 的回调函数每一个返回 true，则返回true
 
 - find 返回第一个符合的值
-- find 返回第一个符合的值的数组下标
+- findIndex 返回第一个符合的值的数组下标 与indexOf 区别为传入的参数，前者为函数
 
 ### 数组去重
 https://gist.github.com/NameHewei/b4cc79f09be425097a994fae4d9ed22e
@@ -974,7 +978,7 @@ import 同时引入： import a, { each } from 'lodash';
 2. 当参数是数组时不再依赖apply拆分数组为参数
 3. 任何 Iterator 接口的对象，都可以通过...扩展运算符转为真正的数组
 
-## Proxy
+## Proxy defineProperty defineProperties
 '拦截'对目标对象的访问
 
 > Proxy(target,handler)
@@ -991,10 +995,6 @@ Proxy 是针对Proxy实例的，并不针对目标对象(target)
 const target = {
     name: 'hew'
 }
-Object.defineProperty(target,'name',{
-    value: 'hew',
-    writable: false
-});
 const handler = {
     // 三个参数，receiver表示操作行为所针对的对象，一般就是proxy实例
     get(target,key,receiver){
@@ -1028,12 +1028,59 @@ const handler = {
 }
 
 const proxy = new Proxy(target, handler)
-
-// proxy.age
-// proxy.age = 5.5
-// proxy.name = 23
 console.log(proxy);
 ```
+
+Object.create(proto, [propertiesObject])
+
+# Object.create(proto, [propertiesObject])
+
+proto: 新对象的__proto__
+
+propertiesObject：可选参数，添加到原型上的枚举属性，以及这些属性的描述，名称等，且对应Object.defineProperties()的第二个参数
+
+返回值：指定了原型对象和属性的新对象
+```js
+const a = Object.create({
+    name: 'hew'
+}, {
+    age: {
+        set(value){
+            console.log("can't set", value);
+            return value
+        },
+        get() {
+            return 250
+        }
+    }
+})
+a.age=12
+console.log(a.age);
+```
+
+```
+Object.defineProperty(obj, prop, descriptor),在现有对象上新建一个属性，或修改现有属性，并返回这个对象
+Object.defineProperties(obj, props)
+props: {
+    property: descriptor
+}
+descriptor: {
+    configurable: 默认false；表示属性是否能删除，以及除writeable以外的属性可否被修改；
+    writable: 默认true；属性值可否被修改
+    enumerable: 默认true 属性是否可以被for...in和Object.keys()获取
+    value: 属性值
+    get() {}
+    set() {}  当设置了get或set后不能设置value或writeable
+}
+```
+
+Proxy 与 Object.defineProperty 对比
+
+Object.defineProperty
+
+- 只能对属性进行数据劫持，所以需要深度遍历整个对象
+
+- 对于数组不能监听到数据的变化
 
 ---
 

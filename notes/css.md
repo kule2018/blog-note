@@ -427,39 +427,58 @@ body{ font-size:$fontSize; }
 ---
 当只用来继承的样式不想输出到css  可以用%名称{}和@extend %名称来使用。  
 ```css
-%ir{
+%cor{
   color: transparent;
 }
 #header{
-    @extend %ir;
+    @extend %cor;
     width:300px;
 }
 ```
 ---
+```
 @at-root{
-      .cla{}
-}   用于将嵌套再某个类下面的类.cla渲染到css的根下而不是跟在某个类之后。
+  .cla{}
+}  
+``` 
+用于将嵌套再某个类下面的类.cla渲染到css的根下而不是跟在某个类之后。
 
 ---
-**混合 mixin**
+### 混合 mixin
+
+- mixin 命名时 a_b 和 a-b 会被认为一样
+- mixin 可以包含任何在 css 和 sass 中有效的内容
+- mixin 可以包含在其它 mixin 中
+- 当 mixin 中的内容没有选择器等 在最外层引入时是不会被解析的
+
 ```css
 @mixin horizontal-line($border:1px dashed #ccc, $padding:10px){
+    // border 和 padding 都设置了默认值
     border-bottom:$border;
     padding-top:$padding;
-    padding-bottom:$padding;  
+    padding-bottom:$padding; 
+    
+    a { color: red }
+
+    &:after { content: "."; }
 }
+
 .imgtext-h li{
     @include horizontal-line(1px solid #ccc);
 }
+
 .imgtext-h--product li{
+    // 可以将参数名和值一同传递
     @include horizontal-line($padding:15px);
 }
-//多组值传参
+
+//多组值传参用 ... 省略
 @mixin box-shadow($shadow...) {
   box-shadow:$shadow;
 }
+
 .box{
-  @include box-shadow(0 2px 2px rgba(0,0,0,.3),0 3px 3px rgba(0,0,0,.3),0 4px 4px rgba(0,0,0,.3));
+  @include box-shadow(0 2px 2px #fff,0 3px 3px #fff,0 4px 4px #fff);
 }
 
 ```

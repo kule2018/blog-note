@@ -1,7 +1,7 @@
 # 元素内容垂直循环滚动
 
 ## CSS
-```
+```css
 ul,li {  padding: 0; margin: 0 }
 .roll-box {
       height: 400px;
@@ -16,7 +16,7 @@ ul,li {  padding: 0; margin: 0 }
 ```
 
 ## HTML
-```
+```html
 <div class="roll-box">
     <ul id="roll">
     </ul>
@@ -24,7 +24,7 @@ ul,li {  padding: 0; margin: 0 }
 ```
 
 ## JS
-```
+```js
 function getData() {
     var htmlStr = '';
     for (var i = 0; i < 20; i++) {
@@ -35,7 +35,7 @@ function getData() {
 }
 
 (function roll() {
-    var UL_HEIGHT = 400, SPEED = 40, LI_HEIGHT = 25;
+    var UL_HEIGHT = 400, SPEED = 100, LI_HEIGHT = 25;
 
     var ulObj = document.getElementById('roll');
     ulObj.innerHTML = getData();
@@ -58,7 +58,9 @@ function getData() {
         }
     });
     
-    // 滚动步骤1.将外部ul移动一个li的高度的距离 2.将移出的li元素放到最后，实现循环，并复原ul的移动距离。
+    // 滚动步骤
+    // 1.将外部 ul 移动一个li的高度的距离 
+    // 2.将移出的li元素放到最后，实现循环，并复原ul的移动距离。
     function animationRoll() {
         clearIn = setInterval(function () {
             if(mouseOut){
@@ -78,7 +80,6 @@ function getData() {
     }
 
     if (height > UL_HEIGHT) {
-        diffrence = height - UL_HEIGHT
         animationRoll()
     } else {
         console.log(ulObj.offsetHeight);
