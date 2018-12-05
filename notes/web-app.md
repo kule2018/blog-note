@@ -48,6 +48,9 @@ body {
 ---
 
 - 防止滑动穿透(例：阻止 touchmove 的default事件)
+```js
+ele.addEventListener('touchmove', (e) => { e.preventDefault(); }, false)
+```
 
 ---
 

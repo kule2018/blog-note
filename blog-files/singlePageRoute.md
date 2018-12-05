@@ -3,6 +3,8 @@
 > 在chrome(版本 70.0.3538.110)测试正常
 > 编写涉及：css, html,js, node(koa)
 
+[在线演示codepen](https://codepen.io/Hewitt/pen/gQymam)
+
 # html代码
 ```html
  <div class="hash">
@@ -54,6 +56,7 @@
     margin: 10px 0;
 }
 .history button {
+    margin: 10px 10px 10px 0;
     padding: 8px 10px;
     border: 0;
     color: #fff;

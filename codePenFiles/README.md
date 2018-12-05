@@ -1,0 +1,1 @@
+- indexedDB 和 singlePageRoute 文件，在node-koa\dist\public\files内
