@@ -1,3 +1,4 @@
+# Mongo
 ## 报错信息
 - 发生系统错误 5。 ：请使用管理员权限
 
@@ -66,3 +67,42 @@ db.表名.update({"条件字段名":"字段值"},{$set:{"要修改的字段名":
 ---
 删除数据  
 db.表名.remove({键值对})//当不加参数时就直接删除表中所有数据(name:’hew’||’name’:’hew’)
+
+
+# MySQL
+
+## zip 安装
+- 将解压后的文件放到任意目录，可改名
+
+- 将\bin 添加到环境变量中（this PC > properties > advanced system settings）
+
+- bin的同级目录 创建my.ini文件 
+
+```
+[mysqld]
+
+ # 设置mysql客户端默认字符集
+default-character-set=utf8 
+[mysqld]
+#设置3306端口
+port = 6767 
+# 设置mysql的安装目录
+basedir=C:\Program Files\mysql
+
+# 设置mysql数据库的数据的存放目录
+
+datadir=C:\Program Files\mysql\data
+
+# 允许最大连接数
+max_connections=200
+# 服务端使用的字符集默认为UTF8
+character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+```
+注意用 mysqld --console 查看错误
+
+1. mysqld --romve  //删除mysql服务
+2. mysqld --install //安装mysql服务 
+3. mysqld --initialize //一定要初始化 
+4. net start mysql
