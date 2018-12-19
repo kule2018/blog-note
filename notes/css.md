@@ -4,6 +4,8 @@
 
 - -webkit-appearance: none; 去掉type=number的默认样式
 
+-  border-collapse: collapse; 去掉tanble中
+
 - initial(设置为默认效果); inherit：继承父元素的该属性；
 
 - @media screen and (max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
@@ -15,6 +17,8 @@
 -  当为行内元素进行定位时，position:**absolute**，position:fixed。都会使原先的行内元素变为块级元素。
 
 - div的宽高等比缩放，用padding-bottom height:0 margin padding 百分比是以宽度来计算
+
+- user-select：none 禁止用户选择 
 
 - img
 replace 元素

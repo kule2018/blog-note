@@ -1,5 +1,11 @@
 [toc]
 
+---
+
+- axios 可以自动判断上传的数据是否是formdata，从而修改content-type
+
+---
+
 # Vue
 
 ## 注意项

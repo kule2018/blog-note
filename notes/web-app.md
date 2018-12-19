@@ -107,6 +107,10 @@ overflow:hidden;width:100%;position: fixed; height: 100%;//移动端如果只设
 
 ---
 
+- 与app交互传递参数时，为保证 ios与 Android都可行，传字符串
+
+---
+
 # 移动端相关说明
  
 - 移动端 兼容所有h5

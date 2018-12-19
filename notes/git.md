@@ -101,4 +101,4 @@ git clone 会默认将本地与远程分支进行追踪
 ---
 - 拉取远程分支并创建本地分支
   - git checkout -b localBranch origin/originBranch
-  - git fetch origin originBranch:localBranch  //区别是不会切换到本地新分支
+  - git fetch origin originBranchName:localBranchName  //区别是不会切换到本地新分支

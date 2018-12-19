@@ -45,6 +45,29 @@ const cors = require('koa2-cors')
 const app = new Koa()
 const router = new Router()
 
+/**
+ * 待解决
+*/
+app.use(async function(ctx, next) {
+    ctx.set("Access-Control-Allow-Origin", ctx.request.header.origin)
+    ctx.set("Access-Control-Allow-Methods", 'GET')
+        // .use(async (ctx, next) => {  
+    //     console.log(ctx.request.header.origin);
+    //     // ctx.set("Access-Control-Allow-Origin", "*")
+    //     // ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    //     // ctx.set("Cache-Control", "no-catch")
+    //     // ctx.set("Access-Control-Allow-Methods", 'POST, GET, PUT, DELETE, OPTIONS')
+    //     // ctx.set("Access-Control-Allow-Credentials", 'false')
+
+    //     ctx.set('Access-Control-Allow-Origin', '*');
+    //     ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    //     ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+
+    //     await next()
+    // })
+    await next()
+})
+
 app
     .use(cors({
         origin: function (ctx) {
