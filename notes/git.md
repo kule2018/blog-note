@@ -54,21 +54,25 @@ git clone 会默认将本地与远程分支进行追踪
 执行git add filename|. ,git commit –m ‘message’,再次将工作区的更改提交到本地仓库-区，告诉Git 冲突已解决。
 
 ---
->分支
+## 分支操作
 
 新建分支时会基于当前所在分支commit的内容新建。所以新建的分支会包含所有所基于的分支内容。
 
 ---
-- git branch                    
-  //显示所有分支（*表示当前所在分支）  
-- git branch branchName         
-  //创建新分支  
-- git checkout –b branchName     
-  //创建新分支并切换到该分支  
-- git branch –d branchName       
-  //删除分支  
+- git branch  //显示所有分支（*表示当前所在分支） 
+    
+- git branch branchName //创建新分支        
+ 
+- git checkout -f branchName // 强行切换分支
 
->远程
+- git checkout –b branchName  //创建新分支并切换到该分支
+    
+- git branch –d branchName   //删除分支
+
+- git branch -D branchName // 强行删除分支
+
+
+### 远程分支操作
 
 - git remote add anyname url  定义了一个本地的anyname远程端，这个anyname远程端指向url所代表的远程端。当用git clone时默认的anyname为origin。 
 

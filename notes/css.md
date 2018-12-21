@@ -188,7 +188,24 @@ inline:水平方向padding margin有效
 word-break:break-all;只对英文起作用，以字母作为换行依据  
 word-wrap:break-word; 只对英文起作用，以单词作为换行依据  
 white-space:pre-wrap; 只对中文起作用，强制换行  
-white-space:nowrap; 强制不换行，都起作用(对inner-block的标签也起作用) (文本不换行直到遇到< br/>;标签) +overflow:hidden 和 text-overflow:ellipsis来实现:aaaaa...
+white-space:nowrap; 强制不换行，都起作用(对inner-block的标签也起作用) (文本不换行直到遇到< br/>;标签)
+
+### 超出省略文本
+单行： 
+```css
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+```
+
+多行：
+```css
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:3; 
+  -webkit-box-orient:vertical;
+  overflow: hidden;
+```
 
 ---
 word-spacing:10px    定义单词间的间距  
