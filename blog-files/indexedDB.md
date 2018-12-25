@@ -3,6 +3,8 @@
 > 在chrome(版本 70.0.3538.110)测试正常
 > 编写涉及：css, html, js
 
+[在线演示codepen](https://codepen.io/Hewitt/pen/vQMxPe)
+
 # html代码
 ```html
 <h1>indexedDB</h1>

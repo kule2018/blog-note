@@ -689,6 +689,11 @@ A.a3=3;//静态属性，在构造实例的时候，实例是不能访问的，�
 
 
 ## String
+- 字符串之间不能用三元运算符来拼接
+```js
+var str = '<div class="d-p-people">'+n===1?n:2+'</div>'  
+```
+
 - substring(start,end)  
 若end比start小，会先交换这两个参数，若有负数变为0。 
 

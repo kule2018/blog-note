@@ -48,6 +48,9 @@ body {
 ---
 
 - 防止滑动穿透(例：阻止 touchmove 的default事件)
+```js
+ele.addEventListener('touchmove', (e) => { e.preventDefault(); }, false)
+```
 
 ---
 
@@ -101,6 +104,10 @@ setTimeout(() => {
 ```css
 overflow:hidden;width:100%;position: fixed; height: 100%;//移动端如果只设置overflow:hidden会无效
 ```
+
+---
+
+- 与app交互传递参数时，为保证 ios与 Android都可行，传字符串
 
 ---
 

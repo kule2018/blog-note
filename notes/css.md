@@ -4,6 +4,8 @@
 
 - -webkit-appearance: none; 去掉type=number的默认样式
 
+-  border-collapse: collapse; 去掉tanble中
+
 - initial(设置为默认效果); inherit：继承父元素的该属性；
 
 - @media screen and (max-width:300px){.className{};//屏幕小于300px}//min 小到大;max 大到小
@@ -15,6 +17,8 @@
 -  当为行内元素进行定位时，position:**absolute**，position:fixed。都会使原先的行内元素变为块级元素。
 
 - div的宽高等比缩放，用padding-bottom height:0 margin padding 百分比是以宽度来计算
+
+- user-select：none 禁止用户选择 
 
 - img
 replace 元素
@@ -184,7 +188,24 @@ inline:水平方向padding margin有效
 word-break:break-all;只对英文起作用，以字母作为换行依据  
 word-wrap:break-word; 只对英文起作用，以单词作为换行依据  
 white-space:pre-wrap; 只对中文起作用，强制换行  
-white-space:nowrap; 强制不换行，都起作用(对inner-block的标签也起作用) (文本不换行直到遇到< br/>;标签) +overflow:hidden 和 text-overflow:ellipsis来实现:aaaaa...
+white-space:nowrap; 强制不换行，都起作用(对inner-block的标签也起作用) (文本不换行直到遇到< br/>;标签)
+
+### 超出省略文本
+单行： 
+```css
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+```
+
+多行：
+```css
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:3; 
+  -webkit-box-orient:vertical;
+  overflow: hidden;
+```
 
 ---
 word-spacing:10px    定义单词间的间距  
