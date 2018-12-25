@@ -314,6 +314,10 @@ promise的回掉会进入异步任务的“微任务”队列
 
 6. close callbacks
 
+---
+
+
+
 
 # express
 
@@ -326,8 +330,40 @@ express()是express模块导出的一个入口函数。
 ---
 
 # koa
-
 - 使用koa2-cors时 要把app.use(cors())放在最前面
+
+
+## graphql 实现
+- 安装 apollo-server-koa 和 koa，看提示再安装graphql
+
+### 学习
+- 是一个用于 API 的查询语言，通过定义类型和类型上的字段来创建的，然后给每个类型上的每个字段提供解析函数
+
+
+## 跨域
+
+- 方法一
+```
+app.use(async function(ctx, next) {
+    ctx.set("Access-Control-Allow-Origin", ctx.request.header.origin)
+    await next()
+})
+```
+- 方法二
+
+```
+const cors = require('koa2-cors')
+app.use(cors({
+    origin: function (ctx) {
+        return 'http://localhost:1111';
+    },
+    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+    maxAge: 5,
+    credentials: true,
+    allowMethods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}));
+```
 
 
 
