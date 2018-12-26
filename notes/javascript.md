@@ -2,7 +2,7 @@
 
 # Javascript
 ---
-一般的函数调用都是同步
+**一般的函数调用都是同步**
 ```js
 function ss() {
 	var i=0;
@@ -11,9 +11,11 @@ function ss() {
 	}
 	console.log(12)
 }
+function bb() {
+    console.log(34)
+}
 ss()
-console.log(34)
-
+bb()
 // 先返回12，再返回34
 ```
 
@@ -501,9 +503,10 @@ return result[value]
 
 ## 事件
 ### 事件说明
-oninput:在 < input> 或 < textarea> 元素的值发生变化时立即触发。  
-onchange:值有改变时，在元素失去焦点时触发。  
-onblur:只要失去焦点就触发。
+- oninput:在 < input> 或 < textarea> 元素的值发生变化时立即触发。  
+- onchange:值有改变时，在元素失去焦点时触发。  
+- onblur:只要失去焦点就触发。
+- 支持onload的标签 < body>, < frame>, < frameset>, < iframe>, < img>, < input type="image">, < link>, < script>, < style>
 
 ### 事件移除
 document.getElementById('id').removeEventListener('click',fn,false);  
@@ -556,6 +559,9 @@ Window||document.body.onbeforeunload=function(e){
 或是用addEventListener同样用returnValue
 
 ---
+
+### window.onerror
+ function(message, source(文件), lineno(行), colno(列), error) { ... }
 
 ## Array
 **伪数组**
