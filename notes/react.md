@@ -143,9 +143,27 @@ store.dispatch()方法会触发reducer的自执行
 subscribe  
 可以用subscribe函数监听store，一旦state发生变化就自动执行这个函数，该方法返回一个函数，调用这个函数就可以接触监听。
 
+# 学习使用ant design pro
 
-# react native
+[文档地址 https://pro.ant.design/index-cn](https://pro.ant.design/index-cn)
 
--  create-react-native-app reactNT  创建
+- 修改端口号h和关闭自动打开浏览器：
+    - 修改package.json的"start": "cross-env port=5656 browser=none APP_TYPE=site umi dev"中，注意不要放到最后
+    - 修改node_modules/af-webpack/lib/dev.js中的如下代码
+```js
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 5656; // 修改默认值
+(0, _openBrowser.default)(urls.localUrlForBrowser); // 注释该行
+```
 
-- yarn start
+- 如果是用create-react-app创建的项目：修改node_modules/react-scripts/scripts/start.js文件中的
+```js
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000; // 修改默认值
+openBrowser(urls.localUrlForBrowser); //注释该行
+```
+
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  }

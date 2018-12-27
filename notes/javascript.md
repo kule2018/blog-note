@@ -774,6 +774,12 @@ padStart(字符串长度，用来补齐的字符串：默认用空格)，padEnd(
 ---
 trim():去掉换行
 
+### 标签模板
+```js
+const str = `a${12}b${34}`
+const fn = () => {}
+fn`str` // 相当于fn(['a','b',''], 12, 34)
+```
 
 ## class
 
