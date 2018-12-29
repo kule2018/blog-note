@@ -24,6 +24,7 @@ bin目录下执行'mongod'即可（当已经创建了将MongoDB服务器作为Wi
 - 当你进入mongodb后台后，默认链接到test文档（数据库）
 
 
+## 操作
 ---
 创建数据库：  
 use databaseName(如果数据库不存在就创建，存在就切换到指定数据库)。  
@@ -68,6 +69,12 @@ db.表名.update({"条件字段名":"字段值"},{$set:{"要修改的字段名":
 删除数据  
 db.表名.remove({键值对})//当不加参数时就直接删除表中所有数据(name:’hew’||’name’:’hew’)
 
+## node调用
+
+有两种驱动 MongoDB Driver 和 Mongoose
+
+- mongodb driver 参考 node-koa/graphql
+- mongoose 参考 node-egg/
 
 # MySQL
 

@@ -100,7 +100,7 @@ git clone 会默认将本地与远程分支进行追踪
 - git branch命令的 **-r** 选项，可以用来查看远程分支，**-a**选项查看所有分支
 
 ---
-- 打tag 前请先commit； git tag -a v1.1.1 -m 'describe'； git push --tags；然后git push 否者当前分支对应的远程分支没有接收到本地最新代码
+- 打tag 前请先commit； git tag -a v1.1.1 -m 'describe'； git push --tags；然后git push； 否者当前分支对应的远程分支没有接收到本地最新代码
 
 ---
 - 拉取远程分支并创建本地分支

@@ -205,7 +205,7 @@ module.exports=exports={}//是按照这个方式赋值
 
 当先设置了module.exports,exports.属性 将失效
 
-require()返回的是module.export
+require()返回的是module.exports
 
 把一个对象封装到模块当中
 
@@ -317,8 +317,6 @@ promise的回掉会进入异步任务的“微任务”队列
 ---
 
 
-
-
 # express
 
 var express=require(express);
@@ -330,6 +328,10 @@ express()是express模块导出的一个入口函数。
 ---
 
 # koa
+
+- koa-static 当设置的目录下有index.html, 访问根路径时，会默认渲染index.html
+- koa-multer 处理上传的文件
+- koa-bodyparser 解析上传的json(基本)
 - 使用koa2-cors时 要把app.use(cors())放在最前面
 
 
@@ -364,6 +366,19 @@ app.use(cors({
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
 ```
+
+---
+
+-  ctx的 headers 和 header 属性皆可获取： ctx.header.origin
+
+## koa-router 
+- /page/:path  利用 ctx.params.path 获取
+
+## request
+
+- 当没有默认导出时要用 * 防止报错  import * as api from './controllers/api'
+
+- ctx.request.query：获取query string参数 以{ key:value } 形式返回
 
 
 
