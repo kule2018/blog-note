@@ -15,7 +15,22 @@
 ---
 # git
 
-> 状态
+## 钩子
+
+可以在 ./git/hooks/ 的文件中修改  禁掉或启用检测
+
+---
+
+husky npm包
+```
+"husky": {
+  "hooks": {
+    "pre-commit": "npm run lint-staged"
+  }
+}
+```
+
+## 状态
 
 A：在本地新增的文件（服务器上没有）  
 C：文件的一个新拷贝  
