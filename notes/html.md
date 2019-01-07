@@ -223,7 +223,6 @@ contentEditable=true用contentEditable来让元素的内容可以编辑，还提
 < a href='tel:1234565'>
 
 # meta
-
 **全屏和禁止电话号码**
 < meta name="apple-mobile-web-app-capable" content="yes" > 
 
