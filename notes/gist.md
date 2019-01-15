@@ -149,6 +149,23 @@ const clear = setInterval(() => {
 ```
 ---
 
+# 动态插入元素
+```js
+const loopInsert = (element, attribute, parent) => {
+    const s = document.createElement(element);
+    for (let n = 0; n < attribute.length; n++) {
+        s[attribute[n].key] = attribute[n].value;
+    }
+    document.querySelector(parent).appendChild(s);
+};
 
+const attribute = [
+    { key: 'href', value: `/a/css/b.css` }
+    { key: 'rel', value: `stylesheet` }
+];
+
+loopInsert('link', attribute, 'head');
+
+```
 
 

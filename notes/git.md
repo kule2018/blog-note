@@ -15,7 +15,22 @@
 ---
 # git
 
-> 状态
+## 钩子
+
+可以在 ./git/hooks/ 的文件中修改  禁掉或启用检测
+
+---
+
+husky npm包
+```
+"husky": {
+  "hooks": {
+    "pre-commit": "npm run lint-staged"
+  }
+}
+```
+
+## 状态
 
 A：在本地新增的文件（服务器上没有）  
 C：文件的一个新拷贝  
@@ -100,7 +115,7 @@ git clone 会默认将本地与远程分支进行追踪
 - git branch命令的 **-r** 选项，可以用来查看远程分支，**-a**选项查看所有分支
 
 ---
-- 打tag 前请先commit； git tag -a v1.1.1 -m 'describe'； git push --tags；然后git push 否者当前分支对应的远程分支没有接收到本地最新代码
+- 打tag 前请先commit； git tag -a v1.1.1 -m 'describe'； git push --tags；然后git push； 否者当前分支对应的远程分支没有接收到本地最新代码
 
 ---
 - 拉取远程分支并创建本地分支
