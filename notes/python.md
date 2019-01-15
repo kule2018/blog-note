@@ -3,8 +3,7 @@
 
 - Ctrl+Z，再按回车 退出命令行
 - python -m pip install --upgrade pip  升级pip
-- 添加新文件，将不会触发自动重新加载，这时你得自己手动重启服务器
-- 监听所有服务器的公开IP（这你运行 Vagrant 或想要向网络上的其它电脑展示你的成果时很有用） python manage.py runserver 0:8000; 0 是 0.0.0.0 的简写
+
 
 # Django
 
@@ -14,9 +13,12 @@
 - 使用pip安装(时间慢) 
 
 ## 项目(包含应用与配置)
-- 创建 django-admin startproject mysite(名称)
-- 创建应用 python manage.py startapp appname
+- 创建project: django-admin startproject mysite(名称)
+- 创建应用: python manage.py startapp appname
+- 添加新文件，将不会触发自动重新加载，这时你得自己手动重启服务器
+- 监听所有服务器的公开IP（你运行 Vagrant 或想要向网络上的其它电脑展示你的成果时很有用） python manage.py runserver 0:8000; 0 是 0.0.0.0 的简写
 
+---
 
 # scrapy
 - 报错 Spider must return Request, BaseItem, dict or None, 表示没有返回正确yield 后面的值
