@@ -4,7 +4,7 @@
 
 - -webkit-appearance: none; 去掉type=number的默认样式
 
--  border-collapse: collapse; 去掉tanble中
+-  border-collapse: collapse; 去掉 table 中边框间间隔，合并边框
 
 - initial(设置为默认效果); inherit：继承父元素的该属性；
 

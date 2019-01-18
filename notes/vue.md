@@ -55,6 +55,14 @@
 1. 自定义事件名，会被转换为全小写；camelCase或PascalCase与kebab-case，永远不会相同；推荐使用kebab-case命名
 
 
+## vue-loader
+
+- 深度作用域 
+```
+.a >>> .b 
+.a /deep/ .b
+```
+
 ## vue-cli
 - assets 目录一般主要放样式代码 会被webpack编译
 - 当打包后的代码不是放到域名的根目录，导致css中的背景图片路径不正确，可以将图片放到此目录，然后在build/utils.js 中修改ExtractTextPlugin 的 publicPath
@@ -69,6 +77,11 @@
 2. 通过同一个router-view 进入的路由间切换, keep-alive 都有效,都会缓存页面。
 3. 只要通过keep-alive下的路由(前提是要包含在include中) 都会触发activated, 只有第一次进入会触发mounted（切换过router-view入口 再进入也会触发mounted）
 4. 注意include 如果用字符串值，后面名称与逗号之间不要有空格
+ 
+### 处理保存页面状态
+- 最好一个模块有一个单独的 router-view 
+- 在 activated 中请求需要实时更新的数据 
+- 在 beforeRouteLeave 中处理和当前需要保存状态页面走同一个 router-view 的页面，否则在这些页面间切换，页面的状态也会被保留（data中的数据）
 
 ## 深入响应式原理
  - 非侵入性的响应式系统
