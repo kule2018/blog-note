@@ -2,30 +2,15 @@
 
 # Javascript
 ---
-**一般的函数调用都是同步**
-```js
-function ss() {
-	var i=0;
-	while(i<10000000000){
-		i++
-	}
-	console.log(12)
-}
-function bb() {
-    console.log(34)
-}
-ss()
-bb()
-// 先返回12，再返回34
-```
 
----
-
-垃圾回收
+**垃圾回收**
 - 当没有变量指向某一内存 a={b:1}; a={c:2}; 存贮{b:1} 会被回收
 - 函数调用完后，内部所有变量将被回收
 
 ---
+
+**try catch**
+
 如果catch和finally中再抛出异常需要外部再添加try-catch
 
 finally 如果返回了值 将作为整个try-catch-finally块的返回值,外层如果还有try-catch将无法捕获异常，且外层要包裹函数，作为函数返回值。
@@ -38,6 +23,7 @@ try{
     // 无论是否有异常，finally中的语句都会执行
 }
 ```
+
 **throw 方法：**
 
 用此方法抛出错误，后续的代码将不会执行，错误会被catch捕获，如果没有catch将其捕获，程序将终止
@@ -49,8 +35,37 @@ new Error([message[, fileName[, lineNumber]]])
 
 
 ---
+https://javascript.ruanyifeng.com/htmlapi/requestanimationframe.html
 **setTimeout**
 第三个及之后的参数都作为回调函数的参数
+
+**window.requestAnimationFrame(callback)：**
+- 回调函数在重绘前调用
+- 浏览器频率是16.7ms(1s/60)，setTime设置时间小于这个值时会出现帧丢失的情况
+- 而requestAnimationFrame是不用设置时间的，设备的时间绘制间隔是好久，它就是好久
+- 当页面没有激活的时候，它会被停止调用，而 setTimeOut 不会
+- 回调函数：有一个参数，就是触发该函数的当前时间，可以打印出来
+
+window.requestAnimationFrame = function() {
+            return 
+                window.requestAnimationFrame || 
+
+                // Older versions Chrome/Webkit
+                window.webkitRequestAnimationFrame || 
+
+                // Firefox < 23
+                window.mozRequestAnimationFrame ||
+
+                // 
+                window.oRequestAnimationFrame ||
+
+                window.msRequestAnimationFrame ||
+
+                function( callback ){
+                window.setTimeout(callback, 1000 / 60);
+              };
+
+        }
 
 ---
 **复制内容**
@@ -649,8 +664,25 @@ arrayA.concat(arrayB);返回拼接后的数组
 
 ## Function
 
+### 一般的函数调用都是同步
+```js
+function ss() {
+	var i=0;
+	while(i<10000000000){
+		i++
+	}
+	console.log(12)
+}
+function bb() {
+    console.log(34)
+}
+ss()
+bb()
+// 先返回12，再返回34
+```
+
 ---
-**高阶函数**
+### 高阶函数
 满足：接收函数作为参数或输出一个函数
 
 ---

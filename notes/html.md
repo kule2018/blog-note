@@ -71,11 +71,8 @@ readonly='readonly'用于input标签，不能修改的。仍然可以使用 tab 
 
 # requestAnimationFrame
 
-window.requestAnimationFrame（callback）：这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这个方法接受一个函数为参，该函数会在重绘前调用。
 
-大部分的浏览器的显示频率是16.7ms，当用setTime时设置的时间小于这个值时就会出现帧丢失的情况，而requestAnimationFrame是不用设置时间的，设备的时间绘制间隔是好久，它就是好久。
 
-回调函数：有一个参数，就是触发该函数的时间
 
 requestID = window.requestAnimationFrame(callback);// Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)
 
