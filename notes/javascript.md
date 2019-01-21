@@ -46,7 +46,7 @@ https://javascript.ruanyifeng.com/htmlapi/requestanimationframe.html
 - 当页面没有激活的时候，它会被停止调用，而 setTimeOut 不会
 - 回调函数：有一个参数，就是触发该函数的当前时间，可以打印出来
 
-window.requestAnimationFrame = function() {
+window.requestAnimationFrame = (function() {
             return 
                 window.requestAnimationFrame || 
 
@@ -65,7 +65,7 @@ window.requestAnimationFrame = function() {
                 window.setTimeout(callback, 1000 / 60);
               };
 
-        }
+        })()
 
 ---
 **复制内容**
