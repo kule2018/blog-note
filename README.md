@@ -21,6 +21,8 @@
 
 - [indexedDB添加，删除，获取，修改](https://github.com/NameHewei/blog/blob/master/blog-files/indexedDB.md)
 
+- [requestAnimationFrame 兼容方案](https://github.com/NameHewei/blog/blob/master/blog-files/requestAnimationFrame.md)
+
 ## Vue
 - [vue中配置sass](https://github.com/NameHewei/blog/blob/master/blog-files/vue/vue-sass-config.md)
 

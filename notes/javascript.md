@@ -35,37 +35,18 @@ new Error([message[, fileName[, lineNumber]]])
 
 
 ---
-https://javascript.ruanyifeng.com/htmlapi/requestanimationframe.html
-**setTimeout**
-第三个及之后的参数都作为回调函数的参数
+**setTimeout | setInterval**
 
-**window.requestAnimationFrame(callback)：**
+- setInterval 一定要确认清除
+- 第三个及之后的参数都作为回调函数的参数
+
+**requestAnimationFrame**
+> 示例：https://codepen.io/Hewitt/pen/VgZapr
 - 回调函数在重绘前调用
 - 浏览器频率是16.7ms(1s/60)，setTime设置时间小于这个值时会出现帧丢失的情况
 - 而requestAnimationFrame是不用设置时间的，设备的时间绘制间隔是好久，它就是好久
 - 当页面没有激活的时候，它会被停止调用，而 setTimeOut 不会
 - 回调函数：有一个参数，就是触发该函数的当前时间，可以打印出来
-
-window.requestAnimationFrame = (function() {
-            return 
-                window.requestAnimationFrame || 
-
-                // Older versions Chrome/Webkit
-                window.webkitRequestAnimationFrame || 
-
-                // Firefox < 23
-                window.mozRequestAnimationFrame ||
-
-                // 
-                window.oRequestAnimationFrame ||
-
-                window.msRequestAnimationFrame ||
-
-                function( callback ){
-                window.setTimeout(callback, 1000 / 60);
-              };
-
-        })()
 
 ---
 **复制内容**
@@ -134,6 +115,7 @@ function handler() {
  - break和continue这两个应用的范围是退出循环或者switch语句，在其他地方使用会导致错误.    
  - continue(跳出本次循环)语句只能用在while语句、do/while语句、for语句、或者for/in语句的循环体内，在其它地方使用都会引起错误！
  
+ - return 后面必须紧跟语句，不能换行
  - return 只能出现在函数体内 语法为：return 表达式。
  - 无函数结果，语法为：return，把控制权返回给页面
  - return false的作用一般是用来取消默认动作的，例如,默认情况下点击一个< a>元素。
@@ -607,7 +589,9 @@ Array.prototype.slice.call(obj);//  ["first", "second"]
 - every有返回值，some 的回调函数每一个返回 true，则返回true
 
 - find 返回第一个符合的值
-- findIndex 返回第一个符合的值的数组下标 与indexOf 区别为传入的参数，前者为函数
+- findIndex 返回第一个符合的值的数组下标 与 indexOf 区别为传入的参数，前者为函数
+
+- includes: [].includes('some value') // return true/false ,与indexOf相比，可以避免返回的0，判断时的错误
 
 ### 数组去重
 https://gist.github.com/NameHewei/b4cc79f09be425097a994fae4d9ed22e
@@ -986,10 +970,13 @@ ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"
   export {n as m};  
 - export 命名可以出现在任何位置，必须是模块顶层。
 
+- 引入的同一个模块，如果不做拷贝，当修改其原始值时，会影响所有引用该模块的地方
+
 ---
 export 与 export default 的区别在于import的时候是不是需要用{}，后者不用。
 
 ---
+- import '模块名' // 表示引入并执行该模块，多次重复调用只执行一次
 - import 后的文件位置的.js可以省略
 - 由于import是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。
 
@@ -1143,7 +1130,7 @@ Object.defineProperty
 
 ## es7
 
-- includes: [].includes('some value') // return true/false ,与indexOf相比，可以避免返回的0，判断时的错误
+- includes：参考上文
 
 - 求幂 Math.pow() 的简洁写法 ** 
 Math.pow(3, 3) === 3 ** 3

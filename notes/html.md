@@ -69,33 +69,6 @@ readonly='readonly'用于input标签，不能修改的。仍然可以使用 tab 
 
 ---
 
-# requestAnimationFrame
-
-
-
-
-requestID = window.requestAnimationFrame(callback);// Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)
-
-requestID = window.mozRequestAnimationFrame(callback);// Firefox <  23
-
-requestID = window.webkitRequestAnimationFrame(callback);// Older versions Chrome/Webkit
-
-用window.cancelAnimationFrame(requestID)来取消这个回调函数；
-
-CancelAnimationFrame  // Webkit中此取消方法的名字变了
-
-CancelRequestAnimationFrame
-
----
-
-requestAnimationFrame(callback)
-
-function callback(){
-    requestAnimationFrame(callback)
-}
-
----
-
 &nbsp占位符 
 
 
