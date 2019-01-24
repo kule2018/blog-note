@@ -1,6 +1,10 @@
 
 [TOC]  
 
+| 居左 | 居右 | 居中 |
+| :- | -: | :-: |
+| aaaaaaaa  | bbbbbbbb | cccccccc |
+
 # 报错信息
 
 > fatal: unable to access 'https://github.com/NameHewei/blog.git/': OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443

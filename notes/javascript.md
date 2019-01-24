@@ -454,7 +454,7 @@ var d=new Date() d.toISOString()。//2017-01-09T06:19:11.004Z
 var d = new Date('2018-04-03T16:40:00'); 
 console.log(d.getTime())
 console.log(d.valueOf())
-console.log(Date.parse('datestring'))
+console.log(Date.parse('date string'))
 console.log(Date.now())
 console.log(Date.UTC(2018, 3, 3, 8, 40, 0))
 // 当给定的时间一样，返回值相同
@@ -585,8 +585,8 @@ Array.prototype.slice.call(obj);//  ["first", "second"]
 - console.log(arr.forEach(function(v){console.log('v',v)}));//返回undefind
 - map 和 set 有 forEach 方法可以用
 
-- some有返回值，some 的回调函数有一个返回 true，则返回true
-- every有返回值，some 的回调函数每一个返回 true，则返回true
+- some 有返回值， some 的回调函数有一个返回 true，则返回true, 有true返回则结束循环
+- every 有返回值， some 的回调函数每一个返回 true，则返回true, 有false返回则结束循环
 
 - find 返回第一个符合的值
 - findIndex 返回第一个符合的值的数组下标 与 indexOf 区别为传入的参数，前者为函数
@@ -648,7 +648,7 @@ arrayA.concat(arrayB);返回拼接后的数组
 
 ## Function
 
-### 一般的函数调用都是同步
+- 一般的函数调用都是同步
 ```js
 function ss() {
 	var i=0;
@@ -664,6 +664,14 @@ ss()
 bb()
 // 先返回12，再返回34
 ```
+
+- 异步编程
+  1. 函数回调
+  2. 事件监听
+  3. Promises
+  4. generator(ES6)
+  5. async/await(ES7)
+  6. 发布/订阅, 将订阅的回调函数，循环的去执行
 
 ---
 ### 高阶函数

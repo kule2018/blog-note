@@ -65,6 +65,8 @@ npm install 默认两个下的都安装，--production 只安装dependences的
 
 ## 基础信息
 
+node中的map()、forEach()、for()循环有一个特性：当其函数里面里面有回调它就变成异步
+
 Node里面没有全局命名空间的概念
 
 用require('path')来导入模块

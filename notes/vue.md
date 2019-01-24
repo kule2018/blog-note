@@ -40,11 +40,12 @@
 
 11. v-model后不能跟表达式
 
-### 生命周期 
+## 生命周期 
 - destroyed ： 如果有定时器，在该钩子函数中务必清除
+https://www.jianshu.com/p/a20f2023c78a
 
 
-### 组件基础
+## 组件基础
 1. data 选项必须是一个函数，因为可以返回对对象的独立拷贝，避免相互影响
 2. 每个组件必须只有一个根元素
 3. 
@@ -55,8 +56,8 @@
     ```
 4. 在input标签上的v-model等价于value与input事件的结合，在自定义组件类似，使用￥emit('input', $event.target.value)
 
-### 自定义事件
-1. 自定义事件名，会被转换为全小写；camelCase或PascalCase与kebab-case，永远不会相同；推荐使用kebab-case命名
+## 自定义事件
+1. 自定义事件名，会被转换为全小写；camelCase 或 PascalCase 与 kebab-case，永远不会相同；推荐使用 kebab-case 命名
 
 
 ## vue-loader
@@ -109,6 +110,12 @@
 
 ### 异步更新队列
 
+
+# vuex
+
+commit 触发 mutation store.commit('name')
+
+dispatch 触发 action store.dispatch('increment')
 
 # api once-over
 
