@@ -301,6 +301,8 @@ Background-clip:border/padding/content-box;背景从border/padding/content开始
 Background-attachment:scroll默认|fixed滚动轴背景图片不会移动
 多重背景，写在前的在上面；
 
+与 img 的 使用区别在于， 如果是页面主要元素就用img
+
 ---
 ## 动画
 > 坐标系: x(向右为正向),y(向下为正向),z(垂直界面向外为正向);视角都是从正方向往负方向看,顺时针为正度数;

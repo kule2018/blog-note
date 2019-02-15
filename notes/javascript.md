@@ -9,6 +9,10 @@
 
 ---
 
+zepto.min.js 加载新的模块  直接在 https://github.com/madrobby/zepto/tree/master/src 将需要的模块拷贝到min.js中
+
+---
+
 **try catch**
 
 如果catch和finally中再抛出异常需要外部再添加try-catch
@@ -125,19 +129,19 @@ function handler() {
 ## 滑动条与元素位置
 1. element.scrollIntoView();//js原生，让元素滚动到可见区域
 
-2. js中是element.scrollTop=100（scrollLeft）来设置或获取滑动条的位置;
+2. js中是 element.scrollTop=100（scrollLeft）来设置或获取滑动条的位置;
 
 3. 谷歌的页面滚动是用的body，火狐是用的html；
 
 4. 谷歌:当scrollTop的值小于1时会直接返回0，所以用y=1除以a的x次方指数函数来趋近0来由快到慢的滑动。
 
+5. window 没有 scrollTop 等方法，有 scrollX 等
+
 
 ## 元素的高度问题  
 返回元素相对于父元素的位置的对象{left,top}  
 
-element.position().left/top;  
-对应js中的offsetLeft和offsetTop  
-用了position更精确。
+element.position().left/top，对应 js 中的 offsetLeft 和 offsetTop，用了position更精确。
 
 ## cookie
 1. document.cookie='name=hew;path=/;expires=UTCstring;max-age=秒'  //设置和获取  
@@ -507,9 +511,14 @@ return result[value]
 ## 事件
 ### 事件说明
 - oninput:在 < input> 或 < textarea> 元素的值发生变化时立即触发。  
+
 - onchange:值有改变时，在元素失去焦点时触发。  
+
 - onblur:只要失去焦点就触发。
+
 - 支持onload的标签 < body>, < frame>, < frameset>, < iframe>, < img>, < input type="image">, < link>, < script>, < style>
+
+- onscroll 事件 对div window都兼容; document，document.body,  document.documentElement 存在兼容问题 http://www.w3help.org/zh-cn/causes/SD9013
 
 ### 事件移除
 document.getElementById('id').removeEventListener('click',fn,false);  
@@ -725,6 +734,12 @@ A.a3=3;//静态属性，在构造实例的时候，实例是不能访问的，�
 
 
 ## String
+字符串存储的大小：理论最大长度是2^53-1
+
+数字 Number 的最大最小范围：Number.MAX_VALUE Number.MIN_VALUE
+
+Number类型统一按浮点数处理，64位存储，整数是按最大54位来算最大最小数的，否则会丧失精度；某些操作（如数组索引还有位操作）按32位处理
+
 - 字符串之间不能用三元运算符来拼接
 ```js
 var str = '<div class="d-p-people">'+n===1?n:2+'</div>'  
@@ -760,14 +775,9 @@ console.log(str.match(/name=([^;]+)(;|$)/g))
 ## 其它
 ### 浏览器窗口尺寸
 1. 对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：  
-window.innerHeight - 浏览器窗口的内部高度  
-window.innerWidth - 浏览器窗口的内部宽度
+window.innerHeight | innerWidth - 浏览器窗口的内部高度  
 2. 对于 Internet Explorer 8、7、6、5：  
-document.documentElement.clientHeight  
-document.documentElement.clientWidth  
-或者  
-document.body.clientHeight  
-document.body.clientWidth
+document.documentElement.clientHeight | clientWidth 或者 document.body.clientHeight | clientWidth
 
 ### iframe
 - 在chrome中window.parent.document 要在服务器上才能使用。
