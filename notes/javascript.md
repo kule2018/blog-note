@@ -520,6 +520,8 @@ return result[value]
 
 - onscroll 事件 对div window都兼容; document，document.body,  document.documentElement 存在兼容问题 http://www.w3help.org/zh-cn/causes/SD9013
 
+- '< div onclick="fn(\''+ param +'\')"></ div>' 内联事件传字符串需加引号并转义
+
 ### 事件移除
 document.getElementById('id').removeEventListener('click',fn,false);  
 这里必须写成fn的函数调用，因为要与添加事件时的函数为同一个函数。  
