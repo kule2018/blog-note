@@ -19,6 +19,23 @@
 - 添加新文件，将不会触发自动重新加载，这时你得自己手动重启服务器
 - 监听所有服务器的公开IP（你运行 Vagrant 或想要向网络上的其它电脑展示你的成果时很有用） python manage.py runserver 0:8000; 0 是 0.0.0.0 的简写
 
+### 文件解释
+```
+|- manege.py: 与项目进行交互的命令行工具集的入口
+|- project name (项目名称，文件夹也是该名称)
+|--- wsgi.py :python应用与web服务器之间的接口(一般不作更改)
+|--- urls.py : URL 配置文件
+|--- settings.py : 项目总配置文件，数据库，web应用，时间等配置
+      BASE_DIR：项目根目录
+      DEBUG：调试用，生产环境要关闭，打开后所有的无效访问都不会走400
+      ALLOWED_HOSTS：只允许哪些域名的访问，其它的全部报400
+      INSTALLED_APPS：自己创建的应用要加到这里面
+      TEMPLATES：模板的配置
+      _init_.py 声明模块的文件，一般内容为空，有了它，tutorial 才能在代码中被当作模块应用
+|--- appname (应用名称)
+|----
+```
+
 ---
 
 # scrapy
