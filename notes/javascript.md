@@ -127,7 +127,7 @@ function handler() {
 ---
 
 ## 滑动条与元素位置
-1. element.scrollIntoView();//js原生，让元素滚动到可见区域
+1. element.scrollIntoView({ behavior: "smooth"});//js原生，让元素滚动到可见区域
 
 2. js中是 element.scrollTop=100（scrollLeft）来设置或获取滑动条的位置;
 

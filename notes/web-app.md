@@ -136,16 +136,9 @@ overflow:hidden;width:100%;position: fixed; height: 100%;//移动端如果只设
 
  px :css pixels 逻辑像素，浏览器使用的抽象单位
  dp,pt: device independent pixels 设备独立像素 物理像素
- dpr：设备像素缩放比 js 用 window.devicePixelRatio 来获取
+ dpr：设备像素缩放比(若为2：等同于页面扩大了一倍，要用initial-scale：0.5变回来) js 用 window.devicePixelRatio 来获取
  设备像素比(dpr) ＝ 物理像素 / 设备独立像素
  CSS中，可以通过-webkit-device-pixel-ratio，-webkit-min-device-pixel-ratio和 -webkit-max-device-pixel-ratio进行媒体查询，对不同dpr的设备做适配
-
-flexible 
-- 设置根font-size，用 document.documentElement.getBoundingClientRect().width 获取宽，除以10
-- ios的缩放比按照 initial-scale=1/dpr 设置,
-- 没有对Android的dpr，缩放比进行匹配是因为
-    - 兼容性差，有些设备设置的initial-scale不为1时无效
-    - 设置initial-scale = 1 获取到的宽度和实际的宽度一致
 
 平面上 1px = dpr * dpr * dp 
 维度上 1px = dpr * dp
