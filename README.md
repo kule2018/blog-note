@@ -30,6 +30,8 @@
 
 - [iview自定义实现多级表头](https://github.com/NameHewei/blog-note/blob/master/blog-files/vue/iview-ud-table-header.md)
 
+- [iView 实现可编辑表格](https://github.com/NameHewei/blog-note/blob/master/blog-files/vue/iview-table-edit.md)
+
 ## react
 - [react-native 入门基础介绍](https://github.com/NameHewei/blog-note/blob/master/blog-files/react/rn-app.md)
 

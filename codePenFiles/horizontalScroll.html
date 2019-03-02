@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>移动端列表水平滑动自动对齐中央</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+    <style>
+        .box {
+            height: 100px;
+            overflow-y: scroll;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            background-color: rgb(236, 236, 236);
+        }
+
+        .single {
+            text-align: center;
+            display: inline-block;
+            height: 80px;
+            margin: 10px 0;
+            background-color: rgb(202, 202, 202);
+        }
+
+        .inner {
+            height: 100%;
+            margin: 0 5px;
+            color: #fff;
+            background-color: rgb(155, 155, 155);
+        }
+
+        .arrow-box {
+            position: relative;
+            height: 50px;
+            padding: 1px 0;
+            margin-top: 20px;
+        }
+
+        .arrow {
+            width: 30px;
+            height: 30px;
+            margin: -5px auto 0;
+            background-color: rgb(62, 234, 247) ;
+            transform: rotate(45deg)
+        }
+
+        .cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            font-weight: 700;
+            color: #fff;
+            background-color: rgb(62, 234, 247) 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+    <div class="arrow-box">
+        <div class="arrow"></div>
+        <div class="cover">当前指向：0</div>
+    </div>
+    <script>
+        horizontalScroll()
+
+        function horizontalScroll() {
+            // length 要为奇数
+            var length = 5, delta = 20;
+            var boxEle = document.querySelector('.box');
+            var clientWidth = boxEle.clientWidth;
+            var baseWidth = clientWidth / length, singleWidth =  baseWidth + delta * 2
+            var padding = baseWidth * Math.floor(length/2) - delta;
+            var boxHtml = ''
+            var clearT = '', halfS = singleWidth / 2, canMove = true;
+
+            boxEle.setAttribute('style', 'padding:0 ' + padding + 'px');
+            for (let i = 0; i < 7; i++) {
+                boxHtml += '<div class="single" style="width:' + singleWidth + 'px"><div class="inner">' + i + '</div></div>'
+            }
+            boxEle.innerHTML= boxHtml
+
+            boxEle.addEventListener('scroll', function () {
+                clearTimeout(clearT)
+                clearT = setTimeout(function () {
+                    var scroll = boxEle.scrollLeft
+                    var n = Math.floor((scroll + halfS) / singleWidth)
+                    var center = n * singleWidth
+                    if(canMove) {
+                        boxEle.scrollLeft = center;
+                        document.querySelector('.cover').innerHTML = '当前指向: ' + n
+                        canMove = false
+                    } else {
+                        canMove = true
+                    }
+                }, 200);
+            })
+        }
+    </script>
+</body>
+
+</html>

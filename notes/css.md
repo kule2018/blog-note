@@ -404,8 +404,8 @@ css原生中也有@import语法  但是不利于性能而且要放在代码最�
 4. 当@import引入的文件后带有media queries（@import tv）
 
 ---
-**变量 $**  
-$fontSize:12px  
+变量命名： dollar符号+名称   
+dollar符号+fontSize:12px  
 body{ font-size:$fontSize; }
 
 ---

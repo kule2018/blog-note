@@ -38,41 +38,36 @@ function weChatShare(title,desc) {
             // 需要调用的JS接口
             jsApiList: [
                 'updateAppMessageShareData',
-                'updateTimelineShareData'
+                'updateTimelineShareData',
+                'onMenuShareAppMessage',
+                'onMenuShareTimeline'
             ]
         });
 
         // config 验证后会执行ready方法
-        wx.ready(function () { });
+        wx.ready(function () {
+            var shareConfig = {
+                title: title,
+                desc: desc,
+                link: link,
+                imgUrl: imgUrl
+            };
+
+            // 目前新版方法存在问题，所以如果有老方法，优先选择老方法
+            if(wx.onMenuShareAppMessage){
+                wx.onMenuShareAppMessage(shareConfig);
+                wx.onMenuShareTimeline(shareConfig);
+            } else {
+                // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容
+                wx.updateAppMessageShareData(shareConfig);
+                // 朋友圈
+                wx.updateTimelineShareData(shareConfig);
+            }
+        });
 
         wx.error(function (res) {
             // config信息验证失败
             console.log(res);
-        });
-
-        // 分享到朋友和QQ好友
-        wx.updateAppMessageShareData({
-            // 分享标题
-            title: title,
-            // 分享描述
-            desc: desc,
-            // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            link: link,
-            // 分享图标
-            imgUrl: imgUrl,
-            success: function () {
-                // 设置成功
-            }
-        })
-
-        // 分享到朋友圈，QQ空间
-        wx.updateTimelineShareData({
-            title: title,
-            link: link,
-            imgUrl: imgUrl,
-            success: function () {
-                // 设置成功
-            }
         });
     }
 
