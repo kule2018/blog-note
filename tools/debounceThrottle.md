@@ -1,10 +1,10 @@
-**防抖（debounce）：在没有被执行前，又触发，重新开始计时**
+## 防抖（debounce）：在没有被执行前，又触发，重新开始计时
 
 应用场景：
 - 防止连续多次点击按钮，提交信息。
 - 搜索输入框，减少请求次数。
 - 判断scroll是否滑到底部
-- 即只需执行一次来获取响应的情况
+- 即只需执行连续操作的最后一次
 
 ```js
 class Debounce {
@@ -38,7 +38,7 @@ fn()
 ```
 
 
-**节流（throttle）：规定时间内无论被触发多少次，都执行一次**
+## 节流（throttle）：规定时间内无论被触发多少次，都执行一次
 
 应用场景：
 - 连续的操作，不仅仅是最后一次触发需要执行，中途的也需要执行，但不需太过频繁
@@ -65,4 +65,38 @@ const clear = setInterval(() => {
     fn()
     console.log('time', i)
 }, 1000)
+```
+
+## 鼠标移动实例
+```html
+<div id="move" style="height: 500px;background-color: rgb(0, 255, 200);"></div>
+```
+
+```js
+document.getElementById('move').addEventListener('mousemove', mouseMove(printLog)
+
+function printLog(e) {
+    console.log(e.clientX, e.clientY);
+}
+
+function mouseMove(callback) {
+    var startTime = Date.now(), timeInterval = 2000, timeout='';
+
+    return function (event) {
+        var  timeNow = Date.now();
+        // 第一次和连续动作时间间隔会执行
+        if(timeNow-startTime >  timeInterval) {
+            callback(event)
+            startTime = timeNow
+        } else {
+            // 在动作完成后间隔2s执行最后一次
+            clearTimeout(timeout)
+            timeout = setTimeout(function() {
+                console.log('last');
+                startTime = timeNow
+                callback(event)
+            }, timeInterval);
+        }
+    }
+}
 ```

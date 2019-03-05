@@ -1,10 +1,6 @@
 # contains
 > you can view all blogs: [cnblogs](http://www.cnblogs.com/he-wei/) or [segmentfault](https://segmentfault.com/u/hewei/articles?sort=vote)
 
-> learning notes: /notes
-
-> tool function (Javascript): /other
-
 ---
 
 # blogs 

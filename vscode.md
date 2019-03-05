@@ -13,10 +13,22 @@ settings.json
     // 请参阅 https://go.microsoft.com/fwlink/?LinkId=761051，了解支持的语言列表
     // 更改此值需要重启 VSCode
     "locale":"en-US",
-    "editor.fontSize": 15,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "workbench.colorTheme": "Monokai",
+    //eslint 配置解释可以setting查看
+    "editor.fontSize": 15,
     "eslint.enable": true,
+    "eslint._legacyModuleResolve": true,
+    "eslint.alwaysShowStatus": true,
+    // 在保存时自动修复
+    "eslint.autoFixOnSave": true,
+    // 使如下语言生效
+    "eslint.validate": [ 
+        "javascript",
+        "javascriptreact",
+        "html",
+        { "language": "vue", "autoFix": true }
+    ],
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "markdown.styles": [
         "C:\\Program Files (x86)\\Microsoft VS Code\\github.css"
     ]
@@ -25,7 +37,11 @@ settings.json
 
 插件迁移
 
-将 C:\Users\hewei\.vscode 下的 extensions 文件夹拷贝到其它电脑对应的位置即可
+将 C:\Users\hewei\.vscode(注意前面的.) 下的 extensions 文件夹拷贝到其它电脑对应的位置即可
+
+snippets位置
+
+C:\Users\hewei\AppData\Roaming\Code\User\snippets
 
 ---
 
