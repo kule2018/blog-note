@@ -77,6 +77,8 @@ https://www.jianshu.com/p/a20f2023c78a
 - 图片资源放到assets，不要放到public中否则打包出来的图片会是两份
 - 其它的js资源可以放到public中
 
+- vue inspect > output.js 仅仅用于审查
+
 ## keep-alive
 1. include 包含的是组件的name属性值
 2. 通过同一个router-view 进入的路由间切换, keep-alive 都有效,都会缓存页面。

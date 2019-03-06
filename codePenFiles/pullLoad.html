@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>滑动到底部自动加载列表下页数据</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+    <style>
+        body{margin: 0;}
+        header{
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+            color: #fff;
+            background-color: rgb(24, 192, 243);
+        }
+        #box {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            overflow: auto;
+            color: #fff;
+            background-color: rgb(238, 238, 238);
+        }
+
+        ul {margin: 0;padding:0}
+
+        li {
+            height: 35px;
+            background-color: rgb(248, 149, 69);
+            border-bottom: 1px solid #fff;
+        }
+
+        #loadingNotice {
+            display: none;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: rgb(179, 179, 179)
+        }
+    </style>
+</head>
+
+<body>
+    <header>列表滑动到底部自动加载下一页数据</header>
+    <div id='box'>
+        <ul id="ul"></ul>
+        <div id="loadingNotice">加载中...</div>
+    </div>
+    <script>
+        bottomAutoLoad()
+        function bottomAutoLoad () {
+            var pageSize = 10, total= 0, currentPage= 1;
+            getList(1);
+            pullUpLoad();
+
+            function appendEle(value) {
+                var ele = document.createElement('li')
+                ele.innerHTML = value;
+                document.getElementById('ul').append(ele);
+            }
+
+            function getList() {
+                total = 22;
+                console.log('get list page', currentPage);
+                if (total > 0) {
+                    for (let i = 0; i < 10; i++) {
+                        appendEle(i + pageSize * (currentPage -1))
+                    }
+                    if(currentPage * pageSize >= total) {
+                        document.getElementById('loadingNotice').setAttribute('style', 'display:none')
+                    } else {
+                        var ele = document.getElementById('box');
+                        if (ele.scrollHeight > ele.clientHeight) {
+                            document.getElementById('loadingNotice').setAttribute('style', 'display:block')
+                        } else {
+                            currentPage += 1
+                            getList();
+                        }
+                    }
+                }
+            }
+
+            // 上拉加载
+            function pullUpLoad() {
+                var scrollEle = document.getElementById('box');
+                var time = 300, clearT= '';
+
+                scrollEle.addEventListener('scroll', function() {
+                    clearTimeout(clearT)
+                    clearT = setTimeout(function() {
+                        if(scrollEle.scrollHeight - scrollEle.scrollTop < scrollEle.clientHeight + 10){
+                            if (currentPage * pageSize < total) {
+                                currentPage += 1
+                                getList();
+                            }
+                        }
+                    }, time)
+                })
+            }
+        }
+    </script>
+</body>
+</html>

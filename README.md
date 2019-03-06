@@ -56,11 +56,8 @@
 - [防抖/节流](https://github.com/NameHewei/blog-note/blob/master/tools/regexpRules.md)
 
 - [与数组相关的操作](https://github.com/NameHewei/blog-note/blob/master/tools/arrayFun.md)
-    1. 数组去重
     
-- [公用方法](https://github.com/NameHewei/blog-note/blob/master/tools/publicFn.md)
-    1. 浏览器全屏
-    2. 原生实现ajax
+- [js中常用的工具方法](https://github.com/NameHewei/blog-note/blob/master/tools/publicFn.md)
 
 ---
 
