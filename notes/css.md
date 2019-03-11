@@ -217,6 +217,8 @@ overflow:hidden;auto（只会出现宽或高的滑动条）;scroll(会出现宽�
 
 text-overflow:ellipsis;（不换行超出部分隐藏且以省略号形式出现）；clip(修剪文本)；
 
+去掉滑动条： 选择器::-webkit-scrollbar { display: none; }
+
 ---
 ie设置滑动条的样式
 

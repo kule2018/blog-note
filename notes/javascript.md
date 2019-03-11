@@ -655,6 +655,8 @@ array.sort(compare);由小到大排列的数组,默认（即没有compare函数�
 
 arrayA.concat(arrayB);返回拼接后的数组
 
+var newArray = [].concat(arr1,arr2,arr3)
+
 ---
 
 ## Function
