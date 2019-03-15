@@ -29,8 +29,15 @@ settings.json
         { "language": "vue", "autoFix": true }
     ],
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+
+    // 装了插件后可以不配置
     "markdown.styles": [
         "C:\\Program Files (x86)\\Microsoft VS Code\\github.css"
+    ],
+
+    // 拼写检测支持vue文件
+    "cSpell.enabledLanguageIds": [
+        "vue"
     ]
 }
 ```

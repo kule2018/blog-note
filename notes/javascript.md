@@ -1029,8 +1029,15 @@ import { default as xxx } from 'modules';
 // import xxx from 'modules';
 
 ---
-import 同时引入： import a, { each } from 'lodash';
+在 export 文件中有如下
 
+export default function() {}
+
+export const each =function() {}
+
+在 import 文件中
+
+import 同时引入： import a, { each } from 'export文件';
 
 ---
 
