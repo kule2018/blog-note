@@ -227,7 +227,7 @@ contentEditable=true用contentEditable来让元素的内容可以编辑，还提
 < meta http-equiv="refresh" content="3;url="http://ww.baidu.com">
 
 ---
-< meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" >
+< meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no, minimum-scale=1, maximum-scale=1" >
 
 ---
 

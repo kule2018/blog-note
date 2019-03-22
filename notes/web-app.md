@@ -8,13 +8,17 @@
 
 ---
 
+- eruda 存在影响页面元素的scroll情况，可能是元素不发滚动
+
+---
+
 - 下载app方式 a标签地址
     1. ios: 'itms-apps://itunes.apple.com/cn/app/%E5%87%AF%E5%8A%B1%E7%A8%8B/id840880551?mt=8'
     2. android： 直接下载地址
 ---
 
 - 打开app
-    1. 查询app的URL Scheme(如微信的为weixin) <a href="weixin://" >打开微信</a> 
+    1. 查询app的URL Scheme(如微信的为weixin) < a href="weixin://" >打开微信< /a> 
 ---
 
 - 禁止识别手机号

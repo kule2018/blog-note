@@ -24,7 +24,7 @@ replace(/^[^1-9]+|[^\d]+/g, '')
 或使用：https://github.com/js-cookie/js-cookie
 ```js
 function getCookieValue(key) {
-  var reg = new RegExp(`${key}=(.*)(;|$)`, 'i')
+  var reg = new RegExp(`${key}=([^&]*)`, 'i')
 }
 ```
 

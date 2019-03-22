@@ -1,3 +1,15 @@
+比特位Bit(b), 字节Byte(B), 千字节Kilobytes(KB), 兆字节 Megabytes(MB), 吉字节Gigabyte(GB), 太字节terabyte(TB)
+
+1字节 = 8位
+
+2进制表示： 1kb = 1024B
+
+utf-8(utf-8就是Unicode最重要的实现方式之一)中
+
+一个英文字母占一个字节
+
+一个中文字母占三个字节
+
 # Mongo
 ## 报错信息
 - 发生系统错误 5。 ：请使用管理员权限
@@ -113,3 +125,7 @@ default-storage-engine=INNODB
 2. mysqld --install //安装mysql服务 
 3. mysqld --initialize //一定要初始化 
 4. net start mysql
+
+## 使用
+
+创建或修改表的时候，注意表中是否有数据

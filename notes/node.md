@@ -335,6 +335,7 @@ express()是express模块导出的一个入口函数。
 - koa-multer 处理上传的文件
 - koa-bodyparser 解析上传的json(基本)
 - 使用koa2-cors时 要把app.use(cors())放在最前面
+- 中间件中有 next 会先执行它之前的代码，执行完最后一个中间件后会逆序执行各个中间件 next 之后的代码
 
 
 ## graphql 实现
