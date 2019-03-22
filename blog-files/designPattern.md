@@ -127,72 +127,80 @@ console.log(new Factory({name:'trump'}).add());
 
 export default 也满足单例模式
 
+```html
  <button id="btn">打开弹窗</button>
-    <script>
-
-        function Single(name) {
+```
+```js
+function Single(name) {
             this.name = name
         }
 
-        const execute = (function ()  {
-            let once = null
+const execute = (function ()  {
+    let once = null
 
-            return function(param) {
-                if (!once) {
-                    once = new Single(param)
+    return function(param) {
+        if (!once) {
+            once = new Single(param)
+        }
+
+        return once
+    }
+})()
+
+const a = execute('hew')
+// 传入的参数 trump 无任何作用
+const b = execute('trump')
+console.log(a === b)  // true
+
+// 弹窗实例
+const createEle = (function() {
+    let once = null
+    return function() {
+        if (!once) {
+            const div = document.createElement('div')
+            div.innerHTML = '我是弹窗'
+            div.addEventListener('click', function() {
+                this.setAttribute('style', 'display:none')
+            })
+
+            document.body.append(div)
+            once = div
+        }
+        return once
+    }
+})()
+
+document.getElementById('btn').addEventListener('click', function() {
+    const div = createEle()
+    div.setAttribute('style', 'display:block')
+})
+
+
+ var toast = (function() {
+            var once = null;
+            return function(text, time) {
+                time = time || 2000
+                var updata = function() {
+                    once.innerHTML = text
+                    once.setAttribute('style', 'position: fixed;left: 50%;z-index: 9000;max-width: 300px;padding: 5px 12px;-webkit-transform: translateX(-50%);text-align: center;border-radius: 4px;font-size: 14px;color: #fff;background-color: rgba(0,0,0,0.6);')
+                    var clearTime = setTimeout(function () {
+                        once.setAttribute('style', 'display:none')
+                    }, time);
                 }
-
-                return once
-            }
-        })()
-
-        const a = execute('hew')
-        const b = execute('trump')
-        console.log(a === b)  // true
-        // 传入的参数 trump 无任何作用
-
-
-        // 实现单体模式弹窗
-// var createWindow = (function(){
-//     var div;
-//     return function(){
-//         if(!div) {
-//             div = document.createElement("div");
-//             div.innerHTML = "我是弹窗内容";
-//             div.style.display = 'none';
-//             document.body.appendChild(div);
-//         }
-//         return div;
-//     }
-// })();
-// document.getElementById("btn").onclick = function(){
-//     // 点击后先创建一个div元素
-//     var win = createWindow();
-//     win.style.display = "block";
-// }
-
-        // 弹窗实例
-        const createEle = (function() {
-            let once = null
-            return function() {
-                if (!once) {
-                    const div = document.createElement('div')
-                    div.innerHTML = '我是弹窗'
-                    div.addEventListener('click', function() {
-                        this.setAttribute('style', 'display:none')
-                    })
-
-                    document.body.append(div)
+                if(!once) {
+                    var bodyEle = document.querySelector('body')
+                    var div = document.createElement('div');
+                    bodyEle.appendChild(div)
                     once = div
+                    updata()
+                } else {
+                    updata()
                 }
-                return once
             }
         })()
 
-        document.getElementById('btn').addEventListener('click', function() {
-            const div = createEle()
-            div.setAttribute('style', 'display:block')
-        })
-    </script>
+        toast('nihao')
+```
+        
 
 > 交流 [Github blog issues](https://github.com/NameHewei/blog/issues)

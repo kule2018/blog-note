@@ -160,9 +160,7 @@ margin:0 auto;居中
 
 ---
 ## 行内块级
-label:为行内元素
 
----
 **inline-block**
 可设置宽高并可在同一行:元素有input select;当使用行内元素时注意html中是否有换行或是空格，会被显示在页面上。
 
@@ -292,7 +290,7 @@ webkit内核
 
 ---
 
-## Background
+## background
 Background：color image repeat fixed position/size  
 注意当有合并（没写的就是默认）有分开写的时候，会有后面覆盖前面的问题，  
 Background-size:  
@@ -305,7 +303,7 @@ Background-attachment:scroll默认|fixed滚动轴背景图片不会移动
 
 与 img 的 使用区别在于， 如果是页面主要元素就用img
 
----
+
 ## 动画
 > 坐标系: x(向右为正向),y(向下为正向),z(垂直界面向外为正向);视角都是从正方向往负方向看,顺时针为正度数;
 
