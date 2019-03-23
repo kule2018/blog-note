@@ -352,3 +352,18 @@ angluar
 vue
 - 数据劫持
 Object.definedProperty() 实现双向绑定
+
+---
+
+M: 数据及数据的获取，页面模板等
+
+V: html css
+
+C: js 及 js操作框架
+
+mvc: c中直接获取元素节点进行渲染
+
+mvp：通过view提供的接口进行渲染
+
+mvvm： 数据双向绑定
+

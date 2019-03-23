@@ -1126,7 +1126,7 @@ a.age=12
 console.log(a.age);
 ```
 
-```
+```js
 Object.defineProperty(obj, prop, descriptor),在现有对象上新建一个属性，或修改现有属性，并返回这个对象
 Object.defineProperties(obj, props)
 props: {
