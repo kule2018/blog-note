@@ -1,3 +1,15 @@
+比特位Bit(b), 字节Byte(B), 千字节Kilobytes(KB), 兆字节 Megabytes(MB), 吉字节Gigabyte(GB), 太字节terabyte(TB)
+
+1字节 = 8位
+
+2进制表示： 1kb = 1024B
+
+utf-8(utf-8就是Unicode最重要的实现方式之一)中
+
+一个英文字母占一个字节
+
+一个中文字母占三个字节
+
 # Mongo
 ## 报错信息
 - 发生系统错误 5。 ：请使用管理员权限
@@ -78,6 +90,38 @@ db.表名.remove({键值对})//当不加参数时就直接删除表中所有数�
 
 # MySQL
 
+查看安装路径：在mysql command line client 中输入 show variables like "%char%"
+
+执行mysql命令后面注意加分号
+
+在powershell 下执行命令注意是否要加 ./ 当前目录
+
+
+
+## 用installer msi 安装
+
+下载 installer 带web的版本表示安装时需要联网
+
+https://dev.mysql.com/downloads/installer/
+
+MySQL Community Server 社区版本，开源免费，但不提供官方技术支持
+
+MySQL Workbench（GUI TOOL）一款专为MySQL设计的ER/数据库建模工具
+
+一直默认 只安装server
+
+注意账号密码 mysql123456 port 3310
+
+- 没有my.init文件，可以在C:\ProgramData\MySQL\MySQL Server 8.0中拷贝一份
+
+- 报错
+1. Client does not support authentication protocol requested by server; consider upgrading MySQL client
+```
+处理方式为 执行如下命令
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '对应用户的密码';
+```
+
+
 ## zip 安装
 - 将解压后的文件放到任意目录，可改名
 
@@ -113,3 +157,19 @@ default-storage-engine=INNODB
 2. mysqld --install //安装mysql服务 
 3. mysqld --initialize //一定要初始化 
 4. net start mysql
+
+
+
+
+# navicat
+
+下载 https://www.navicat.com.cn/products 
+Navicat Premium
+
+https://www.lanzous.com/b607627/ Navicat Premium 12注册机，提取密码：RCNJTECH
+
+激活教程 https://www.jianshu.com/p/5f693b4c9468
+
+## 使用
+
+创建或修改表的时候，注意表中是否有数据

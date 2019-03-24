@@ -1,6 +1,18 @@
 [toc]
 
 # Javascript
+
+---
+
+**节点操作**
+- 当把获取到的节点添加到DOM中的另外一个地方时，原位置的节点没有了，移动到文档片段也是同理；相当于移动节点位置
+
+---
+
+**document.createDocumentFragment()**
+- 创建新的文档片段
+- DocumentFragments 是属于DOM节点的
+
 ---
 
 **垃圾回收**
@@ -822,7 +834,9 @@ trim():去掉换行
 ```js
 const str = `a${12}b${34}`
 const fn = () => {}
-fn`str` // 相当于fn(['a','b',''], 12, 34)
+// 函数方式调用
+fn`str` 
+// 相当于fn(['a','b',''], 12, 34)
 ```
 
 ## class
@@ -875,13 +889,8 @@ Map:也是键值对的形式的，但是键的形式不只是字符。
 同样有一个weakmap。
 
 ---
-反引号（在tab上面）创建字符串，内部可用${变量}。
-
----
 let 是块作用域，一个函数或一个for或if语句中； 
-const 常量索引 只可以在声明的时候赋值 不可以随意更改  变量名在内存中的指针不会变，但是指向这个变量的值会变  
-const name=[];name.push('hew');  
-conts name=[];name=[];//error  因为修改了索引变量到了一个新的数组
+const 常量索引 只可以在声明的时候赋值 变量名在内存中的指针不会变，但是指向这个变量的值可以变  
 
 ---
 ## 函数
@@ -1029,8 +1038,15 @@ import { default as xxx } from 'modules';
 // import xxx from 'modules';
 
 ---
-import 同时引入： import a, { each } from 'lodash';
+在 export 文件中有如下
 
+export default function() {}
+
+export const each =function() {}
+
+在 import 文件中
+
+import 同时引入： import a, { each } from 'export文件';
 
 ---
 
@@ -1127,7 +1143,7 @@ console.log(a.age);
 ```
 
 ```js
-Object.defineProperty(obj, prop, descriptor),在现有对象上新建一个属性，或修改现有属性，并返回这个对象
+Object.defineProperty(obj, 属性名称, descriptor),在现有对象上新建一个属性，或修改现有属性，并返回这个对象
 Object.defineProperties(obj, props)
 props: {
     property: descriptor
@@ -1176,3 +1192,31 @@ Object.entries({ a: 1, b: 2 }) // [['a', 1], ['b', 2]]
 - 异步函数 async/await 
 
 - Object.getOwnPropertyDescriptors
+
+## es2019
+
+- 展平数组
+
+flat(展平层级:数字(默认1)或Infinity)  会过滤数组中的空值 返回新数组
+
+flatMap(() => {}): 对原数组执行一个map操作，然后再执行flat 只能展开一层数组  返回新数组
+
+- Object.fromEntries() 将键值对数组转换为对象
+
+```js
+Object.fromEntries([['name', 'hew']])
+
+Object.fromEntries(new Map([['name', 'hew'], ['scope', '12']]))  // {name: 'hew', scope: '12'}
+
+Object.fromEntries(new URLSearchParams('name=hew&scope=12')) // {name: 'hew', scope: '12'}
+```
+
+- 删除字符串开头的空格
+
+' abcdefg'.trimStart() 同 trimLeft()
+
+'abcdefg  '.trimEnd() 同 trimRight()
+
+- try catch 中 catch的参数可以省略
+
+- Symble 加了一个description的只读属性 返回描述

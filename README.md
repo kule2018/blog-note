@@ -1,9 +1,16 @@
-# contains
-> you can view all blogs: [cnblogs](http://www.cnblogs.com/he-wei/) or [segmentfault](https://segmentfault.com/u/hewei/articles?sort=vote)
+[toc]
+
+# 内容包含
+- 博客
+- codepen 实列
+- 学习整理笔记
 
 ---
 
-# blogs 
+# 博客
+
+> 同步于 [cnblogs](http://www.cnblogs.com/he-wei/) 和  [segmentfault](https://segmentfault.com/u/hewei/articles?sort=vote)
+
 
 - [HTML5 Device Access](https://github.com/NameHewei/blog-note/blob/master/blog-files/html5device.md)
 
@@ -45,7 +52,7 @@
 
 ---
 
-# tool function
+# 工具函数
 
 - [正则匹配](https://github.com/NameHewei/blog-note/blob/master/tools/regexpRules.md)
 
@@ -57,7 +64,26 @@
 
 ---
 
-# learning notes
+# codeen
+[所有实例地址 Profile](https://codepen.io/Hewitt/) 
+
+- [自定义滑动条](https://codepen.io/Hewitt/pen/dradRr)
+
+- [元素滑动到底部自动加载内容](https://codepen.io/Hewitt/pen/oVLpvE)
+
+- [移动端列表水平滑动自动对齐中央](https://codepen.io/Hewitt/pen/KEKGwp)
+
+- [requestAnimationFrame兼容方案](https://codepen.io/Hewitt/pen/VgZapr)
+
+- [内容垂直循环滚动](https://codepen.io/Hewitt/pen/YdjLwN)
+
+- [indexedDB](https://codepen.io/Hewitt/pen/vQMxPe)
+
+- [hashAndHistoryRoute](https://codepen.io/Hewitt/pen/gQymam)
+
+---
+
+# 学习笔记
 
 - [css](https://github.com/NameHewei/blog-note/blob/master/notes/css.md)
 
@@ -65,17 +91,13 @@
 
 - [javascript](https://github.com/NameHewei/blog-note/blob/master/notes/javascript.md)
 
-- [koa](https://github.com/NameHewei/blog-note/blob/master/notes/koa.md)
-
-- [mongoDB](https://github.com/NameHewei/blog-note/blob/master/notes/mongoDB.md)
-
-- [node](https://github.com/NameHewei/blog-note/blob/master/notes/node.md)
-
-- [python](https://github.com/NameHewei/blog-note/blob/master/notes/python.md)
+- [typescript](https://github.com/NameHewei/blog-note/blob/master/notes/typescript.md)
 
 - [react](https://github.com/NameHewei/blog-note/blob/master/notes/react.md)
 
 - [vue](https://github.com/NameHewei/blog-note/blob/master/notes/vue.md)
+
+- [D3](https://github.com/NameHewei/blog-note/blob/master/notes/D3.md)
 
 - [web-app](https://github.com/NameHewei/blog-note/blob/master/notes/web-app.md)
 
@@ -83,6 +105,21 @@
 
 - [front-end.md](https://github.com/NameHewei/blog-note/blob/master/notes/front-end.md)
 
+---
+
+- [node](https://github.com/NameHewei/blog-note/blob/master/notes/node.md)
+
+- [koa](https://github.com/NameHewei/blog-note/blob/master/notes/koa.md)
+
+- [python](https://github.com/NameHewei/blog-note/blob/master/notes/python.md)
+
+- [mysql-mongo](https://github.com/NameHewei/blog-note/blob/master/notes/mysql-mongo.md)
+
+---
+
 - [git](https://github.com/NameHewei/blog-note/blob/master/notes/git.md)
 
-- [D3](https://github.com/NameHewei/blog-note/blob/master/notes/D3.md)
+---
+
+- [examination](https://github.com/NameHewei/blog-note/blob/master/notes/interviewMapStudyNote.md)
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll bar</title>
+    <style>
+        h3{
+            padding: 10px;
+            color: #fff;
+            background-color: rgb(5, 196, 148);
+        }
+        h4{
+            padding: 5px;
+            color: #fff;
+            background-color: rgb(209, 165, 22);
+        }
+        .div{
+            width: 500px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+        .div div{
+            width: 600px;
+            height: 400px;
+        }
+        .ie_div{
+            background-color: rgb(34, 137, 255);
+            /* 滚动条凸出部分的颜色 */
+            scrollbar-face-color: blue;
+            /* 滚动条空白部分的颜色 */
+            scrollbar-highlight-color: yellow;
+            /* 立体滚动条阴影的颜色 */
+            scrollbar-shadow-color: red;
+            /* 滚动条亮边的颜色 */
+            scrollbar-3dlight-color: green;
+            /* 上下按钮上三角箭头的颜色 */
+            scrollbar-arrow-color:rgb(125, 9, 192);
+            /* 滚动条的背景颜色 */
+            scrollbar-track-color: rgb(7, 214, 169);
+            /* 滚动条强阴影的颜色 */
+            scrollbar-darkshadow-color: rgb(7, 214, 35);
+            /* 滚动条的基本颜色 */
+            scrollbar-base-color: rgb(187, 88, 49);
+        }
+
+        .webkit_div{
+            background-color: rgb(46, 245, 245);
+        }
+        .webkit_div::-webkit-scrollbar {  
+            /* // Y轴方向滚动条的宽度 */
+            width: 14px; 
+            /* // X轴方向滚动条的高度 */
+            height: 10px;
+            background-color: rgb(194, 194, 194);
+        }
+        /* 滑动条前后部分的样式（默认是箭头），可设置背景图片 */
+        .webkit_div::-webkit-scrollbar-button:vertical:increment  {  
+            background-color:red;  
+            height:15px;  
+        }
+        .webkit_div::-webkit-scrollbar-button:horizontal:decrement  {  
+            background-color:red;  
+            height:15px;  
+        }
+        /* 滚动槽的颜色v */
+        .webkit_div::-webkit-scrollbar-track-piece {  
+            background-color:green;  
+        } 
+        /* 滑块的颜色   */
+        .webkit_div::-webkit-scrollbar-thumb:vertical {  
+            height: 50px;  
+            background-color: #9cdbff;  
+            border:1px solid #7bcfff;  
+            border-radius:10px;  
+        } 
+        .webkit_div::-webkit-scrollbar-thumb:horizontal {  
+            height: 50px;  
+            background-color: #9cdbff;  
+            border:1px solid #7bcfff;  
+            border-radius:10px;  
+        } 
+    </style>
+</head>
+<body>
+    <h3>自定义滑动条 请打开对应浏览器查看效果（Edge 和 Firefox 需要插件 本示例未实现） 参考（https://webkit.org/blog/363/styling-scrollbars/）</h3>
+
+    <h4>老版本ie,非Edge，并且已被废弃</h4>
+    <div class="div ie_div">
+        <div></div>
+    </div>
+
+    <h4>webkit内核</h4>
+    <div class="div webkit_div">
+        <div></div>
+    </div>
+</body>
+</html>

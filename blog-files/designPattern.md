@@ -151,19 +151,24 @@ const Single = (function() {
     }          
 })()
 const a = new Single('hew')
-const b = new Single('trump1')
-console.log(a === b)  // true
 // 传入的参数 trump 无任何作用
+const b = new Single('trump')
+console.log(a === b)  // true
 ```
 
 弹窗实例（惰性单例实现）惰性单例：点击或需要使用时才创建
+
+```html
+ <button id="btn">打开弹窗</button>
+```
+
 ```js
 const createEle = (function() {
     let once = null
     return function() {
         if (!once) {
             const div = document.createElement('div')
-            div.innerHTML = '我是弹窗，点击隐藏'
+            div.innerHTML = '我是弹窗'
             div.addEventListener('click', function() {
                 this.setAttribute('style', 'display:none')
             })
