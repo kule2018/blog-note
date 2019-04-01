@@ -12,6 +12,17 @@
 
 ---
 
+- 禁止用户选择
+-webkit-user-select: none;
+user-select: none; 
+
+---
+
+- ios横竖屏切换字体变大 
+-webkit-text-size-adjust: 100%;
+
+---
+
 - 下载app方式 a标签地址
     1. ios: 'itms-apps://itunes.apple.com/cn/app/%E5%87%AF%E5%8A%B1%E7%A8%8B/id840880551?mt=8'
     2. android： 直接下载地址

@@ -1,6 +1,19 @@
 [toc]
 
 # Javascript
+
+---
+
+动静态语言： 声明的变量是否可以存储不同类型的值，在编译阶段会检测类型
+
+强弱类型语言： 其产物是，是否允许不同类型值之间进行计算
+
+js(动态弱类型语言)
+
+c|c++ 编译型语言 将程序编译成机器语言
+
+java python 解释型语言（java 将程序编译成字节码：理解为一种中间语言，再由JVM将字节码再翻译成机器语言）
+
 ---
 
 **垃圾回收**
@@ -639,17 +652,29 @@ array.unshift(),对头入栈，返回数组长度；
 array.reverse();逆向排序的数组  
 
 ``` javascript
-    function compare(a,b) { //这是从小到大设计模式
-         if (a < b) {
-             return -1;
-         }else if(a > b) {
-             return 1; //这里返回1表示要交换
-         }else{
-             return 0;
-         }
-     }
+const arr = [1,55,6,2]
+function compare(a,b) { 
+    // 这里是从大到小排列
+    if (a > b) {
+        return -1; 
+    }else if(a < b) {
+        return 1; 
+    }else{
+        return 0;
+    }
+}
+// compare(a,b) 重点关注返回值即刻
+// 返回0 位置不变
+// 返回-1 a放到b之前（这里输入a，b参数不代表a就在b之前）
+// 返回1 a放到b之后
+arr.sort(compare);
+// 默认小到大排列（即没有compare函数）按照数组元素对应的字符串的 Unicode 从小到大进行排序。  
+
+// 比较数字可以简单的使用(升序)
+function compareNumber(a,b) { 
+    return a - b
+}
 ```
-array.sort(compare);由小到大排列的数组,默认（即没有compare函数）按照数组元素对应的字符串的 Unicode 从小到大进行排序。  
 
 **reverse和sort都不返回新数组，且都是对数组才能操作**
 

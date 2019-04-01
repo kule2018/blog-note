@@ -13,6 +13,8 @@ ls 显示文件或目录 -l 列出文件详细信息l(list)；  -a  列出当前
 ---
 # npm
 
+---
+
 **npm-shrinkwrap.json和package-lock.json区别**
 - shrinkwrap 向后兼容npm版本2,3和4
 - package-lock 只能被npm 5+识别
