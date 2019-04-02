@@ -8,6 +8,18 @@
 
 # Vue
 
+## vue-cli
+- assets 目录一般主要放样式代码 会被webpack编译
+- 当打包后的代码不是放到域名的根目录，导致css中的背景图片路径不正确，可以将图片放到此目录，然后在build/utils.js 中修改ExtractTextPlugin 的 publicPath
+- 最好用相对路径
+
+## cue-cli-3
+- 图片资源放到assets，不要放到public中否则打包出来的图片会是两份
+- 其它的js资源可以放到public中
+
+- vue inspect > output.js 仅仅用于审查
+
+
 ## 注意项
 
 ### 概述
@@ -67,17 +79,6 @@ https://www.jianshu.com/p/a20f2023c78a
 .a >>> .b 
 .a /deep/ .b
 ```
-
-## vue-cli
-- assets 目录一般主要放样式代码 会被webpack编译
-- 当打包后的代码不是放到域名的根目录，导致css中的背景图片路径不正确，可以将图片放到此目录，然后在build/utils.js 中修改ExtractTextPlugin 的 publicPath
-- 最好用相对路径
-
-## cue-cli-3
-- 图片资源放到assets，不要放到public中否则打包出来的图片会是两份
-- 其它的js资源可以放到public中
-
-- vue inspect > output.js 仅仅用于审查
 
 ## keep-alive
 1. include 包含的是组件的name属性值

@@ -6,6 +6,11 @@ https://juejin.im/entry/58c280b1da2f600d8725b887
 
 使代码更易理解，维护
 
+1. 工厂模式
+2. 单例模式
+3. 模块模式
+4. 代理模式
+
 ## 工厂模式
 
 目的是为了创建对象,定义用于创建对象的接口
@@ -121,38 +126,43 @@ console.log(new Factory({name:'trump'}).add());
 ## 单例模式
 只需要一个的对象(如浏览器中的window等), 只有一个实例，全局访问
 
-惰性单例（点击或需要使用时才创建）
-
 应用场景：管理模块；命名空间，减少全局变量数量
 
 export default 也满足单例模式
 
+利用类和闭包来实现
+```js
+class SingleConstruct {
+    constructor(name) {
+        this.name = name
+    }
+
+    getName() {
+        return this.name
+    }
+}
+const Single = (function() {
+    let once = null
+    return function(name) {
+        if(!once) {
+            once = new SingleConstruct(name)
+        }
+        return once
+    }          
+})()
+const a = new Single('hew')
+// 传入的参数 trump 无任何作用
+const b = new Single('trump')
+console.log(a === b)  // true
+```
+
+弹窗实例（惰性单例实现）惰性单例：点击或需要使用时才创建
+
 ```html
  <button id="btn">打开弹窗</button>
 ```
+
 ```js
-function Single(name) {
-            this.name = name
-        }
-
-const execute = (function ()  {
-    let once = null
-
-    return function(param) {
-        if (!once) {
-            once = new Single(param)
-        }
-
-        return once
-    }
-})()
-
-const a = execute('hew')
-// 传入的参数 trump 无任何作用
-const b = execute('trump')
-console.log(a === b)  // true
-
-// 弹窗实例
 const createEle = (function() {
     let once = null
     return function() {
@@ -171,36 +181,119 @@ const createEle = (function() {
 })()
 
 document.getElementById('btn').addEventListener('click', function() {
+    // 每次点击都是操作的同一个div
     const div = createEle()
     div.setAttribute('style', 'display:block')
 })
-
-
- var toast = (function() {
-            var once = null;
-            return function(text, time) {
-                time = time || 2000
-                var updata = function() {
-                    once.innerHTML = text
-                    once.setAttribute('style', 'position: fixed;left: 50%;z-index: 9000;max-width: 300px;padding: 5px 12px;-webkit-transform: translateX(-50%);text-align: center;border-radius: 4px;font-size: 14px;color: #fff;background-color: rgba(0,0,0,0.6);')
-                    var clearTime = setTimeout(function () {
-                        once.setAttribute('style', 'display:none')
-                    }, time);
-                }
-                if(!once) {
-                    var bodyEle = document.querySelector('body')
-                    var div = document.createElement('div');
-                    bodyEle.appendChild(div)
-                    once = div
-                    updata()
-                } else {
-                    updata()
-                }
-            }
-        })()
-
-        toast('nihao')
 ```
-        
+
+## 模块模式
+
+对象字面量方式
+
+```js
+const moduleObject = {
+    name: 'modeule',
+    config: {
+        version: 'v0.0.0'
+    },
+
+    getName: function() {
+        console.log('function getName');
+    }
+}
+
+console.log(moduleObject.name);
+console.log(moduleObject.getName());
+```
+
+匿名函数形式
+```js
+const modulePattern = (function() {
+    const privateCount = 1122
+    const privateFn =  function() {
+        console.log('private funnction');
+    }
+
+    return {
+        variable: 'var',
+        method1: function(){
+            console.log(privateCount);
+        },
+        method2: function() {
+            console.log('method2');
+        }
+    }
+})()
+
+console.log(modulePattern.privateCount); //undefined
+console.log(modulePattern.method1()); // 1122
+```
+
+## 代理模式
+
+提供一个代理对象，可以访问某个对象中的方法
+
+简单示例
+```js
+// 老板找人替自己板砖
+class Staff{
+    constructor(name) {
+        this.staff = name
+    }
+}
+
+class Boss{
+    constructor() {
+        this.boss = 'Hew'
+    }
+    liftingBrick(who) {
+        console.log(`${who.staff} help boss ${this.boss} lifting brick`);
+    }
+}
+
+class ProxyLiftingBrick{
+    liftingBrick(staff){
+        new Boss().liftingBrick(staff)
+    }
+}
+
+const plb = new ProxyLiftingBrick()
+plb.liftingBrick(new Staff('Trump'))
+```
+
+// 图片加载
+```js
+// 创建img标签元素
+const createImgEle = (function() {
+    const img = document.createElement('img')
+    document.body.appendChild(img)
+
+    return {
+        setSrc: function(url) {
+            img.src = url
+        }
+    }
+})()
+
+// 代理加载图片
+const proxyLoadImg = (function() {
+    const imgObj = new Image()
+    imgObj.onload = function() {
+        setTimeout(() => {
+            createImgEle.setSrc(this.src)
+        }, 2000);
+    }
+    return {
+        setSrc: function(url) {
+            // 默认图
+            createImgEle.setSrc('http://img2.imgtn.bdimg.com/it/u=3806557979,3233516071&fm=26&gp=0.jpg')
+            imgObj.src = url
+        }
+    }
+})()        
+
+proxyLoadImg.setSrc('http://pic.58pic.com/58pic/15/68/59/71X58PICNjx_1024.jpg')
+```
 
 > 交流 [Github blog issues](https://github.com/NameHewei/blog/issues)

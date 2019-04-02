@@ -146,7 +146,7 @@ class HistoryRoute {
                 this.renderView(path)
             },
             replaceState: () => {
-                // 是用来修改当前的history实体而不是创建一个新的,比如连转顺序为1，2，3，1执行replaceState(2),再执行back()，返回1，而不是3
+                // 是用来修改当前的history实体而不是创建一个新的,比如跳转顺序为1，2，3，1执行replaceState(2),再执行back()，返回1，而不是3
                 history.replaceState({ path }, path, path)
                 this.renderView(path)
             },

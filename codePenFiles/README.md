@@ -5,3 +5,6 @@
 - ./horizontalScroll.html 移动端列表水平滑动自动对齐中央 
 
 - ./pullLoad.html 滑动到底部自动加载列表下页数据
+
+- ./scrollbar.html 自定义滑动条
+

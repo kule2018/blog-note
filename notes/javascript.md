@@ -14,6 +14,15 @@ c|c++ 编译型语言 将程序编译成机器语言
 
 java python 解释型语言（java 将程序编译成字节码：理解为一种中间语言，再由JVM将字节码再翻译成机器语言）
 
+**节点操作**
+- 当把获取到的节点添加到DOM中的另外一个地方时，原位置的节点没有了，移动到文档片段也是同理；相当于移动节点位置
+
+---
+
+**document.createDocumentFragment()**
+- 创建新的文档片段
+- DocumentFragments 是属于DOM节点的
+
 ---
 
 **垃圾回收**
@@ -491,7 +500,7 @@ for(var 变量 in 数组名 ){  //不推荐
 }  
 for...in 遍历（当前对象及其原型上的）每一个属性名称,而 for...of遍历（当前对象上的）每一个属性值  
 
-for...of  不可以遍历对象{a:1,b:2}
+for...of  不可以遍历对象{a:1,b:2} 因为原生对象不具有 Iterator 接口
 ```
 ---
 in 的用法  
@@ -983,19 +992,17 @@ f(...ar);
 ```
 
 ---
-## generator(生成器)
-一种异步编程解决方案。可以理解为一个状态机，封装了多个内部状态。  
-yield(产出),定义不同的内部状态。  
-function * helloworldgenerator(){  
-    yield 'hello';  
-    yield 'world';  
-    return 'ending'  
-}  
-var hw= helloworldgenerator();返回一个指向内部状态的指针对象(interatorObject)
-调用next()；从函数头部或上一次停止的地方开始。返回一个对象  
-{value:yield表达式的值,done:false|true}  false表示遍历还没有结束。  
-yield 没有返回值，next()的参数可以被认为是上一个yield的返回值。  
-V8引擎直接忽略第一次next()的参数  
+## Generator(生成器)
+- 异步编程解决方案
+- 可理解为一种状态机，封装了多个内部状态
+- 可返回一个指向内部状态的指针对象（遍历器对象Interator），所以可理解为其是一个遍历器对象生成函数
+- yield(产出),定义不同的内部状态，yield后跟表达式。  
+- yield 表达式只能放在Generator函数中
+- (yield 表达式) 整个没有返回值，next()的参数可以被认为是上一个yield的返回值。  
+- V8引擎直接忽略第一次next()的参数，因为没有上一次yield  
+- 调用next方法，是指针从函数头部或上一次停止的地方开始执行，直到遇到下一个yield表达式或return
+- 当next的返回值的value属性为yield后表达式的结果或return后的值，done属性为true时表示遍历结束
+
 yield* 用于在一个generator函数中执行另一个generator函数  
 
 ---
@@ -1155,8 +1162,8 @@ a.age=12
 console.log(a.age);
 ```
 
-```
-Object.defineProperty(obj, prop, descriptor),在现有对象上新建一个属性，或修改现有属性，并返回这个对象
+```js
+Object.defineProperty(obj, 属性名称, descriptor),在现有对象上新建一个属性，或修改现有属性，并返回这个对象
 Object.defineProperties(obj, props)
 props: {
     property: descriptor
@@ -1230,6 +1237,8 @@ Object.fromEntries(new URLSearchParams('name=hew&scope=12')) // {name: 'hew', sc
 
 'abcdefg  '.trimEnd() 同 trimRight()
 
+
 - try catch 中 catch的参数可以省略
 
 - Symble 加了一个description的只读属性 返回描述
+
