@@ -6,7 +6,7 @@
 js 相关代码 (移动端实测有效)
 ```js
 function weChatShare(title,desc) {
-    var link = window.location.href; // 这里如果采用的并非当前也可能会出错，具体原因有待查找
+    var link = window.location.href; // 这里如果采用的并非当前页可能会出错，具体原因有待查找
     var serverUrl = encodeURIComponent(link);
     var imgUrl = '分享显示的小图'; //80*80 实测可以使用其它比列，最好使用小尺寸正方形,域名也要在安全域名之下
 
@@ -79,4 +79,4 @@ weChatShare('tit', 'des')
 
 本篇文章只是做了方法整合，详见 https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1445241432
 
-> 交流 [Github blog issues](https://github.com/NameHewei/blog/issues)
+> 欢迎交流 [Github](https://github.com/NameHewei/blog-note)

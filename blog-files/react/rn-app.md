@@ -205,6 +205,6 @@ export default createBottomTabNavigator({
 - nativeBase组件:https://nativebase.io/
 
 
-> 若有疑问或错误，请留言，谢谢！[Github blog issues](https://github.com/NameHewei/blog/issues)
+> 欢迎交流 [Github](https://github.com/NameHewei/blog-note)
 
 

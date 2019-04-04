@@ -296,4 +296,4 @@ const proxyLoadImg = (function() {
 proxyLoadImg.setSrc('http://pic.58pic.com/58pic/15/68/59/71X58PICNjx_1024.jpg')
 ```
 
-> 交流 [Github blog issues](https://github.com/NameHewei/blog/issues)
+> 欢迎交流 [Github](https://github.com/NameHewei/blog-note)

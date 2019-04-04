@@ -4,6 +4,7 @@
 - 博客
 - codepen 实列
 - 学习整理笔记
+- 一些工具函数
 
 ---
 
@@ -30,6 +31,8 @@
 - [微信分享](https://github.com/NameHewei/blog-note/blob/master/blog-files/weChatShare.md)
 
 - [微信授权并获取用户信息](https://github.com/NameHewei/blog-note/blob/master/blog-files/weChatGetUserInfo.md)
+
+- [页面弹窗toast和加载loading](https://github.com/NameHewei/blog-note/blob/master/blog-files/toastAndLoading.md)
 
 ## Vue
 - [vue中配置sass](https://github.com/NameHewei/blog-note/blob/master/blog-files/vue/vue-sass-config.md)
@@ -69,7 +72,7 @@
     
 - [js中常用的工具方法](https://github.com/NameHewei/blog-note/blob/master/tools/publicFn.md)
 
-【原生ajax】【批量动态插入元素】【时间格式化】【浏览器全屏】【移动端toast弹窗】
+【原生ajax】【批量动态插入元素】【时间格式化】【浏览器全屏】
 
 - [js实现的算法](https://github.com/NameHewei/blog-note/blob/master/algorithm/algorithm.md)
 

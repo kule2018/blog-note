@@ -102,4 +102,6 @@ exports.cors = {
 ```
 > 详见[egg-cord](https://github.com/eggjs/egg-cors)
 
+> 欢迎交流 [Github](https://github.com/NameHewei/blog-note)
+
 

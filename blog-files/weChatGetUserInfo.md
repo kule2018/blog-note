@@ -27,4 +27,4 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=RED
 
 本篇文章只是做了整个流程说明与坑点，详见上方官方文档
 
-> 交流 [Github blog issues](https://github.com/NameHewei/blog/issues)
+> 欢迎交流 [Github](https://github.com/NameHewei/blog-note)

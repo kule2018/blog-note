@@ -101,7 +101,7 @@ git clone 会默认将本地与远程分支进行追踪
 
 - git push origin [localbranch | HEAD(就是当前活跃分支的游标)] : remotebranch (当远程和本地分支相同时可以简写：git push origin branchname)  
 
-- 当远程没有branchname时就新建分支，确保本地已有branchname分支
+- git push origin  localbranch : remotebranch 创建远程分支 确保本地已有branchname分支
 - git push origin  :remotebranch  删除远程分支 ||   
 - git push origin --delete remotebranch
 

@@ -113,4 +113,4 @@ module.exports = app => {
 
 本文只是辅助介绍快速搭建一个基本的egg项目，具体内容请参考：https://eggjs.org/
 
-> 若有疑问或错误，请留言，谢谢！[Github blog issues](https://github.com/NameHewei/blog/issues)
+> 欢迎交流 [Github](https://github.com/NameHewei/blog-note)

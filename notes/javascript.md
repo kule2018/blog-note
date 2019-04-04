@@ -992,26 +992,6 @@ f(...ar);
 ```
 
 ---
-## Generator(生成器)
-- 异步编程解决方案
-- 可理解为一种状态机，封装了多个内部状态
-- 可返回一个指向内部状态的指针对象（遍历器对象Interator），所以可理解为其是一个遍历器对象生成函数
-- yield(产出),定义不同的内部状态，yield后跟表达式。  
-- yield 表达式只能放在Generator函数中
-- (yield 表达式) 整个没有返回值，next()的参数可以被认为是上一个yield的返回值。  
-- V8引擎直接忽略第一次next()的参数，因为没有上一次yield  
-- 调用next方法，是指针从函数头部或上一次停止的地方开始执行，直到遇到下一个yield表达式或return
-- 当next的返回值的value属性为yield后表达式的结果或return后的值，done属性为true时表示遍历结束
-
-yield* 用于在一个generator函数中执行另一个generator函数  
-
----
-for…of可以返回所有的yield表达式值，但是return后的值不能，不用next()
-
----
-console.log('Hello' + (yield 123)); // OK  
-foo(yield 'a', yield 'b'); // OK  
-let input = yield; // OK
 
 ## 模块功能
 ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"use strict";。  

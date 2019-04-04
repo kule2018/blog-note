@@ -20,6 +20,8 @@
 
 - user-select：none 禁止用户选择 
 
+- ::before css3 语法  :before 用来支持IE8
+
 - img
 replace 元素
 谷歌是不管有没有src属性，设置了宽高就会有一个边框显示，只能用一个小的透明图片占位去除边框;    

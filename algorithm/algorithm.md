@@ -1,4 +1,6 @@
 # 斐波拉契数列
+> 利用生成器
+
 f0 = 0; f1 = 1; fn = f(n-1) + f(n-2); n>=2
 ```js
 function* fibonacci() {
